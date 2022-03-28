@@ -43,15 +43,30 @@
 # frac = numc - ent
 # print("Parte fraccionaria:", round(frac, 3))
 
+# Ej. 5:
+
+def print_n(n):
+    while n > 0:
+        print (n % 10),
+        n = n / 10
+
+print("Ingrese numero: ", end="")
+
+n = input()
+print_n(n)
+#print("\nSeparación en digitos:", print_n(n), sep="-")
+
+
 # Ej. 6:
 
-import math
+# import math
 
-print("Ingrese base: ", end="")
-base = float(input())
-print("Ingrese altura: ", end="")
-altura = float(input())
-diametro = math.sqrt(((altura)**2 + (base/2)**2))
-perimetro = round(diametro*2+base, 2)
-print("Cálculos para un triangulo de base", int(base), "y altura", str(int((altura))) + ":")
-print("<<< Área=" + str(area), ">>>   <<< Perímetro=" + str(perimetro), ">>>")
+# print("Ingrese base: ", end="")
+# base = float(input())
+# print("Ingrese altura: ", end="")
+# altura = float(input())
+# area = (base*altura)/2
+# diametro = math.sqrt(((altura)**2 + (base/2)**2))
+# perimetro = round(diametro*2+base, 2)
+# print("Cálculos para un triangulo de base", int(base), "y altura", str(int((altura))) + ":")
+# print("<<< Área=" + str(area), ">>>   <<< Perímetro=" + str(perimetro), ">>>")
