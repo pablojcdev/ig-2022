@@ -20,8 +20,8 @@
 from ctypes.wintypes import PINT
 
 
-print("Ingrese su nombre:", end="")
+print("Ingrese su nombre: ", end="")
 nombre = input()
-print("Ingrese su apellido:", end="")
+print("Ingrese su apellido: ", end="")
 apellido = input()
-print("Hola " + nombre, apellido + "!")
+print("Hola " + nombre.capitalize(), apellido.capitalize() + "!")
