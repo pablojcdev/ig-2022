@@ -17,11 +17,8 @@
 
 # Ej. 2:
 
-from ctypes.wintypes import PINT
-
-
 print("Ingrese su nombre: ", end="")
 nombre = input()
 print("Ingrese su apellido: ", end="")
 apellido = input()
-print("Hola " + nombre.capitalize(), apellido.capitalize() + "!")
+print("Hola", nombre.capitalize(), apellido.capitalize() + "!")
