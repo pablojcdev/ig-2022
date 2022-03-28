@@ -36,9 +36,22 @@
 
 # Ej. 4:
 
-print("Ingrese numero: ", end="")
-numc = float(input())
-ent = int(numc)
-print("\nParte entera:", ent)
-frac = numc - ent
-print("Parte fraccionaria:", round(frac, 3))
+# print("Ingrese numero: ", end="")
+# numc = float(input())
+# ent = int(numc)
+# print("\nParte entera:", ent)
+# frac = numc - ent
+# print("Parte fraccionaria:", round(frac, 3))
+
+# Ej. 6:
+
+import math
+
+print("Ingrese base: ", end="")
+base = float(input())
+print("Ingrese altura: ", end="")
+altura = float(input())
+diametro = math.sqrt(((altura)**2 + (base/2)**2))
+perimetro = round(diametro*2+base, 2)
+print("Cálculos para un triangulo de base", int(base), "y altura", str(int((altura))) + ":")
+print("<<< Área=" + str(area), ">>>   <<< Perímetro=" + str(perimetro), ">>>")
