@@ -45,17 +45,16 @@
 
 # Ej. 5:
 
-def print_n(n):
-    while n > 0:
-        print (n % 10),
-        n = n / 10
+# print("Ingrese numero: ", end="")
+# num = int(input())
 
-print("Ingrese numero: ", end="")
+# u = ((num//1)%10)**2
+# d = ((num//10)%10)**2
+# c = ((num//100)%10)**2
+# um = ((num//1000)%10)**2
+# dm = ((num//10000)%10)**2
 
-n = input()
-print_n(n)
-#print("\nSeparación en digitos:", print_n(n), sep="-")
-
+# print("\nSeparación en digitos: " + str(dm), um, c, d, u, sep="-")
 
 # Ej. 6:
 
@@ -70,3 +69,16 @@ print_n(n)
 # perimetro = round(diametro*2+base, 2)
 # print("Cálculos para un triangulo de base", int(base), "y altura", str(int((altura))) + ":")
 # print("<<< Área=" + str(area), ">>>   <<< Perímetro=" + str(perimetro), ">>>")
+
+# Ej. 7:
+
+# print("Ingrese el primer numero: ", end="")
+# num1 = int(input())
+# u1 = ((num1//1)%10)
+# print("Ingrese el segundo numero: ", end="")
+# num2 = int(input())
+# d2 = ((num2//10)%10)*10
+
+# num3 = u1 + d2
+# print("El numero resultante es:", num3)
+
