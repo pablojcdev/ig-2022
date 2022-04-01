@@ -84,11 +84,23 @@
 
 # Ej. 8:
 
-print("Ingrese tiempo en segundos: ", end="")
-s = int(input())
-d = (s/60/60/24)
-h = (d - int(d))*24
-h_c = (s/60/60)
-m = (h_c - int(h_c))*60
-s= (m - int(m)) * 60
-print(int(d), "dia(s),", int(h), "hora(s),", int(m), "minuto(s),", int(s), "segundo(s).")
+# print("Ingrese tiempo en segundos: ", end="")
+# s = int(input())
+# d = (s/60/60/24)
+# h = (d - int(d))*24
+# h_c = (s/60/60)
+# m = (h_c - int(h_c))*60
+# s= (m - int(m)) * 60
+# print(int(d), "dia(s),", int(h), "hora(s),", int(m), "minuto(s),", int(s), "segundo(s).")
+
+# Ej. 9:
+
+print("Ingrese numero de cantidad impar de cifras (al menos 3 cifras):", end="")
+num=input()
+cifras = len(num)
+f = int(num[0])
+l= int(num[-1])
+c = int(num[cifras//2])
+
+print("El numero ingresado tiene", cifras, "cifras.")
+print("La primera cifra es", f, "la ultima es", l, "y la central es", str(c) + ".")
