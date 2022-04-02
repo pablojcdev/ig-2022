@@ -95,12 +95,39 @@
 
 # Ej. 9:
 
-print("Ingrese numero de cantidad impar de cifras (al menos 3 cifras):", end="")
-num=input()
-cifras = len(num)
-f = int(num[0])
-l= int(num[-1])
-c = int(num[cifras//2])
+# print("Ingrese numero de cantidad impar de cifras (al menos 3 cifras):", end="")
+# num=input()
+# cifras = len(num)
+# f = int(num[0])
+# l= int(num[-1])
+# c = int(num[cifras//2])
 
-print("El numero ingresado tiene", cifras, "cifras.")
-print("La primera cifra es", f, "la ultima es", l, "y la central es", str(c) + ".")
+# # Otra solucion posible
+# # num = "1234567"
+# # cifras = lin(num)
+# # num = int(num)
+# # f = num%10
+# # c = num//10**(cifras-1)%10
+
+# print("El numero ingresado tiene", cifras, "cifras.")
+# print("La primera cifra es", f, "la ultima es", l, "y la central es", str(c) + ".")
+
+# Ej.  10:
+
+print("Ingrese un numero binario: ", end="")
+num = int(input())
+
+u = (((num//1)%10))*2**0
+d = (((num//10)%10))*2**1
+c = (((num//100)%10))*2**2
+um = (((num//1000)%10))*2**3
+dm = (((num//10000)%10))*2**4
+
+binario = dm + um + c + d + u
+
+print("\nNumero en decimal:", binario)
+
+# Ingrese un numero binario: 10101
+# Número en decimal: 21
+# Ingrese un numero binario: 110
+# Número en decimal: 6
