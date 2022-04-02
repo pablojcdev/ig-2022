@@ -114,20 +114,42 @@
 
 # Ej.  10:
 
-print("Ingrese un numero binario: ", end="")
-num = int(input())
+# print("Ingrese un numero binario: ", end="")
+# num = int(input())
 
-u = (((num//1)%10))*2**0
-d = (((num//10)%10))*2**1
-c = (((num//100)%10))*2**2
-um = (((num//1000)%10))*2**3
-dm = (((num//10000)%10))*2**4
+# u = (((num//1)%10))*2**0
+# d = (((num//10)%10))*2**1
+# c = (((num//100)%10))*2**2
+# um = (((num//1000)%10))*2**3
+# dm = (((num//10000)%10))*2**4
 
-binario = dm + um + c + d + u
+# binario = dm + um + c + d + u
 
-print("\nNumero en decimal:", binario)
+# print("\nNumero en decimal:", binario)
 
 # Ingrese un numero binario: 10101
 # Número en decimal: 21
 # Ingrese un numero binario: 110
 # Número en decimal: 6
+
+# Ej.  10:
+
+print("Ingrese un numero decimal (maximo 5 cifras): ", end="")
+num = int(input())
+
+u = num%8
+uc = num//8
+d = uc%8
+dc = uc//8
+c = dc%8
+cc = dc//8
+um = cc%8
+umc = cc//8
+dm = umc%8
+
+print("\nNumero en octal:", str(dm) + str(um) + str(c) + str(d) + str(u))
+#print("\nNumero en octal:", "{}{}{}{}{}".format(dm, um, c, d, u))
+
+# Ingrese un numero decimal (maximo 5 cifras): 1234
+# Numero en octal:2322
+
