@@ -155,20 +155,58 @@
 
 # Ej. 12:
 
-num1 = int(input("Ingrese el 1.er numero entero: "))
-num2 = int(input("Ingrese el 2.do numero entero: "))
-num3 = int(input("Ingrese el 3.er numero entero: "))
-r = num1 + num2 + num3
+# num1 = int(input("Ingrese el 1.er número entero: "))
+# num2 = int(input("Ingrese el 2.do número entero: "))
+# num3 = int(input("Ingrese el 3.er número entero: "))
+# r = num1 + num2 + num3
 
-print('{:=10d}'.format((num1)))
-print('\n{:=10d}'.format((num2)))
-print('\n{:=10d}'.format((num3)))
-print("")
-print("-" * 10)
-print('\n{:=10d}'.format((r)))
+# print('{:=10d}'.format((num1)))
+# print('\n{:=10d}'.format((num2)))
+# print('\n{:=10d}'.format((num3)))
+# print("")
+# print("-" * 10)
+# print('\n{:=10d}'.format((r)))
 
-# - 4
-# 105
-# - 60
+# -        4
+#
+#        105
+#
+# -       60
+#
 # ----------
-# 41
+#
+#         41
+
+# Ej. 13:
+
+num1 = int(input("Ingrese el multiplicando: "))
+num2 = int(input("Ingrese el multiplicador: "))
+
+u = (num2//1)%10
+d = (num2//10)%10
+c = (num2//100)%10
+
+r_u = num1 * u
+r_d = num1 * d
+r_c = num1 * c
+r = num1 * num2
+
+print('{:10d}'.format((num1)))
+print('{}{:9d}'.format("x", (num2)))
+print("-" * 10)
+print('{:10d}'.format((r_u)))
+print('{}{:8d}{}'.format("+", (r_d), "-"))
+print('{:8d}{}'.format((r_c), "--"))
+print("-" * 10)
+print('{:10d}'.format((r)))
+
+# Ingrese el multiplicando: 123
+# Ingrese el multiplicador: 456
+#        123
+# x      456
+# ----------
+#        738
+# +     615-
+#      492--
+# ----------
+#      56088
