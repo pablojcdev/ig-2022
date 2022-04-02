@@ -132,24 +132,43 @@
 # Ingrese un numero binario: 110
 # Número en decimal: 6
 
-# Ej.  10:
+# Ej. 11:
 
-print("Ingrese un numero decimal (maximo 5 cifras): ", end="")
-num = int(input())
+# print("Ingrese un numero decimal (maximo 5 cifras): ", end="")
+# num = int(input())
 
-u = num%8
-uc = num//8
-d = uc%8
-dc = uc//8
-c = dc%8
-cc = dc//8
-um = cc%8
-umc = cc//8
-dm = umc%8
+# u = num%8
+# uc = num//8
+# d = uc%8
+# dc = uc//8
+# c = dc%8
+# cc = dc//8
+# um = cc%8
+# umc = cc//8
+# dm = umc%8
 
-print("\nNumero en octal:", str(dm) + str(um) + str(c) + str(d) + str(u))
-#print("\nNumero en octal:", "{}{}{}{}{}".format(dm, um, c, d, u))
+# print("\nNumero en octal:", str(dm) + str(um) + str(c) + str(d) + str(u))
+# #print("\nNumero en octal:", "{}{}{}{}{}".format(dm, um, c, d, u))
 
-# Ingrese un numero decimal (maximo 5 cifras): 1234
-# Numero en octal:2322
+# # Ingrese un numero decimal (maximo 5 cifras): 1234
+# # Numero en octal:2322
 
+# Ej. 12:
+
+num1 = int(input("Ingrese el 1.er numero entero: "))
+num2 = int(input("Ingrese el 2.do numero entero: "))
+num3 = int(input("Ingrese el 3.er numero entero: "))
+r = num1 + num2 + num3
+
+print('{:=10d}'.format((num1)))
+print('\n{:=10d}'.format((num2)))
+print('\n{:=10d}'.format((num3)))
+print("")
+print("-" * 10)
+print('\n{:=10d}'.format((r)))
+
+# - 4
+# 105
+# - 60
+# ----------
+# 41
