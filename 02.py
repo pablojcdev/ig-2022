@@ -28,6 +28,8 @@ main()
 
 # Ej. 2:
 
+
+
 from math import pow
 
 def sqrt(x, n):
@@ -39,10 +41,15 @@ def main():
     n = int(input("Ingrese el índice (numero natural): "))
 
     miraiz = round(sqrt(x, n), 2)
-    print(miraiz)
+    print("La raiz", n, "de", x, "es =", miraiz)
 
 main()
 
 # Ingrese el radicando (numero real): 14
 # Ingrese el índice (numero natural): 3
 # La raiz 3 de 14 es = 2.410142
+
+
+
+# Ej. 3:
+
