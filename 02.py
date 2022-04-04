@@ -1,3 +1,7 @@
+# Ej. 1:
+
+'''
+
 from math import sqrt
 
 def area(l1, l2, l3):
@@ -20,5 +24,25 @@ main()
 # Ingrese lado 3: 7
 # El area del triangulo es = 5.56
 
-# El área de un triángulo se puede calcular como √ p(p − a)(p − b)(p − c) siendo p =(a
-# +b +c) / 2 y donde a, b, c son los lados del triángulo.
+'''
+
+# Ej. 2:
+
+from math import pow
+
+def sqrt(x, n):
+    r = pow(x, 1/n)
+    return r
+
+def main():
+    x = int(input("Ingrese el radicando (numero real): "))
+    n = int(input("Ingrese el índice (numero natural): "))
+
+    miraiz = round(sqrt(x, n), 2)
+    print(miraiz)
+
+main()
+
+# Ingrese el radicando (numero real): 14
+# Ingrese el índice (numero natural): 3
+# La raiz 3 de 14 es = 2.410142
