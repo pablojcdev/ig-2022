@@ -28,7 +28,7 @@ main()
 
 # Ej. 2:
 
-
+'''
 
 from math import pow
 
@@ -49,7 +49,31 @@ main()
 # Ingrese el índice (numero natural): 3
 # La raiz 3 de 14 es = 2.410142
 
-
+'''
 
 # Ej. 3:
 
+def paridad(binario):
+    bit = binario % 2 
+    return bit
+
+def main():
+    num = int(input("Ingrese un numero de binario de hasta 8 bits: "))
+
+    n8 = (((num//1)%10))
+    n7 = (((num//10)%10))
+    n6 = (((num//100)%10))
+    n5 = (((num//1000)%10))
+    n4 = (((num//10000)%10))
+    n3 = (((num//100000)%10))
+    n2 = (((num//1000000)%10))
+    n1 = (((num//10000000)%10))
+
+    binario = n1 + n2 + n3 + n4 + n5 + n6 + n7 + n8
+
+    miparidad = paridad(binario)
+    print("Bit de paridad generado:", miparidad)
+
+main()
+
+#Ingrese un numero binario: 10101
