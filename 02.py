@@ -53,6 +53,8 @@ main()
 
 # Ej. 3:
 
+'''
+
 def paridad(binario):
     bit = binario % 2 
     return bit
@@ -76,4 +78,40 @@ def main():
 
 main()
 
-#Ingrese un numero binario: 10101
+# Ingrese un numero de binario de hasta 8 bits: 10111
+# Bit de paridad generado: 0
+
+'''
+
+# Ej. 4:
+
+from math import pi
+from math import pow
+
+def areacirc (r_cc):
+	a_cc = pi * (pow(r_cc, 2)) # 12.56
+	return a_cc
+
+def areacuad (lado):
+	a_cuadrado = pow(lado, 2)
+	return a_cuadrado
+
+def areanegra (a_cuadrado, a_circulos):
+	a_negra = a_cuadrado - a_circulos
+	return a_negra
+
+def main():
+	lado = int(input("Ingrese el lado: "))
+	areacuad(lado)
+	
+	r_cc = ((1/3*lado)/2) #2
+	areacirc(r_cc)
+	
+	# a_cg = 4(a_cc)
+	a_circulos = (2*areacirc(r_cc))+(4*areacirc(r_cc)) # 68.60 # 75.36
+
+	p_a_negra = (((areanegra(areacuad(lado), a_circulos))) * 100)/areacuad(lado) # 47.64
+    # p_a_negra = round(((a_negra * 100%)/a_cuadrado), 2)
+	print("El area negra es", round(areanegra(areacuad(lado), a_circulos), 2), "y es un", str(round(p_a_negra, 2)) + "%", "del area total del cuadrado")	
+
+main()
