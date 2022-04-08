@@ -121,6 +121,7 @@ main()
 
 # Ej. 5:
 
+'''
 import random
 
 def r(li, Is):
@@ -138,5 +139,35 @@ def main():
     Is = r(li, Is)
 
     print(r(li, Is))
+
+main()
+
+'''
+
+# Ej. 6:
+
+from random import randint
+
+def r():
+    r_random = randint(0, 1)
+    return r_random
+
+def c_r(c, o1, o2, o3, o4, o5, o6):
+    if c == 0:
+        print (o1, o3, o5)
+    else: 
+        print (o2, o4, o6)
+
+def main():
+    o1 = "traje"
+    o2 = "bermuda"
+    o3 = "pancho con papas"
+    o4 = "langosta Thermidor"
+    o5 = "vino" 
+    o6 = "agua gasificada"
+    
+    c = r()
+    
+    c_r(c, o1, o2, o3, o4, o5, o6)
 
 main()
