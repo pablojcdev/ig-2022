@@ -85,6 +85,7 @@ main()
 
 # Ej. 4:
 
+'''
 from math import pi
 from math import pow
 
@@ -113,5 +114,29 @@ def main():
 	p_a_negra = (((areanegra(areacuad(lado), a_circulos))) * 100)/areacuad(lado) # 47.64
     # p_a_negra = round(((a_negra * 100%)/a_cuadrado), 2)
 	print("El area negra es", round(areanegra(areacuad(lado), a_circulos), 2), "y es un", str(round(p_a_negra, 2)) + "%", "del area total del cuadrado")	
+
+main()
+
+'''
+
+# Ej. 5:
+
+import random
+
+def r(li, Is):
+    r_random = random.randint(li, Is) 
+    return r_random
+
+def main():
+    li = int("14") 
+    Is= int("31")
+    
+    print(r(li, Is)) 
+    li = r(li, Is)
+
+    print(r(li, Is)) 
+    Is = r(li, Is)
+
+    print(r(li, Is))
 
 main()

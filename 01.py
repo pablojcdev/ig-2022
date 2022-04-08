@@ -150,8 +150,8 @@ dm = umc%8
 octal = u + d*10 + c*100 + um*1000 + dm*10000
 
 print("\nNumero en octal:", octal)
-#print("\nNumero en octal:", str(dm) + str(um) + str(c) + str(d) + str(u))
-#print("\nNumero en octal:", "{}{}{}{}{}".format(dm, um, c, d, u))
+# print("\nNumero en octal:", str(dm) + str(um) + str(c) + str(d) + str(u))
+# print("\nNumero en octal:", "{}{}{}{}{}".format(dm, um, c, d, u))
 
 # # Ingrese un numero decimal (maximo 5 cifras): 1234
 # # Numero en octal:2322
