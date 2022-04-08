@@ -134,21 +134,24 @@
 
 # Ej. 11:
 
-# print("Ingrese un numero decimal (maximo 5 cifras): ", end="")
-# num = int(input())
+print("Ingrese un numero decimal (maximo 5 cifras): ", end="")
+num = int(input())
 
-# u = num%8
-# uc = num//8
-# d = uc%8
-# dc = uc//8
-# c = dc%8
-# cc = dc//8
-# um = cc%8
-# umc = cc//8
-# dm = umc%8
+u = num%8
+uc = num//8
+d = uc%8
+dc = uc//8
+c = dc%8
+cc = dc//8
+um = cc%8
+umc = cc//8
+dm = umc%8
 
-# print("\nNumero en octal:", str(dm) + str(um) + str(c) + str(d) + str(u))
-# #print("\nNumero en octal:", "{}{}{}{}{}".format(dm, um, c, d, u))
+octal = u + d*10 + c*100 + um*1000 + dm*10000
+
+print("\nNumero en octal:", octal)
+#print("\nNumero en octal:", str(dm) + str(um) + str(c) + str(d) + str(u))
+#print("\nNumero en octal:", "{}{}{}{}{}".format(dm, um, c, d, u))
 
 # # Ingrese un numero decimal (maximo 5 cifras): 1234
 # # Numero en octal:2322
@@ -179,26 +182,26 @@
 
 # Ej. 13:
 
-num1 = int(input("Ingrese el multiplicando: "))
-num2 = int(input("Ingrese el multiplicador: "))
+# num1 = int(input("Ingrese el multiplicando: "))
+# num2 = int(input("Ingrese el multiplicador: "))
 
-u = (num2//1)%10
-d = (num2//10)%10
-c = (num2//100)%10
+# u = (num2//1)%10
+# d = (num2//10)%10
+# c = (num2//100)%10
 
-r_u = num1 * u
-r_d = num1 * d
-r_c = num1 * c
-r = num1 * num2
+# r_u = num1 * u
+# r_d = num1 * d
+# r_c = num1 * c
+# r = num1 * num2
 
-print('{:10d}'.format((num1)))
-print('{}{:9d}'.format("x", (num2)))
-print("-" * 10)
-print('{:10d}'.format((r_u)))
-print('{}{:8d}{}'.format("+", (r_d), "-"))
-print('{:8d}{}'.format((r_c), "--"))
-print("-" * 10)
-print('{:10d}'.format((r)))
+# print('{:10d}'.format((num1)))
+# print('{}{:9d}'.format("x", (num2)))
+# print("-" * 10)
+# print('{:10d}'.format((r_u)))
+# print('{}{:8d}{}'.format("+", (r_d), "-"))
+# print('{:8d}{}'.format((r_c), "--"))
+# print("-" * 10)
+# print('{:10d}'.format((r)))
 
 # Ingrese el multiplicando: 123
 # Ingrese el multiplicador: 456
