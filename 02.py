@@ -146,6 +146,8 @@ main()
 
 # Ej. 6:
 
+'''
+
 from random import randint
 
 def r():
@@ -169,5 +171,21 @@ def main():
     c = r()
     
     c_r(c, o1, o2, o3, o4, o5, o6)
+
+main()
+
+'''
+
+# Ej. 7:
+
+def justificado(frase, ancho, dot):
+    print('{dot}{frase:>{ancho}}{dot2}'.format(dot=dot, frase=frase, ancho=ancho, dot2=dot))
+
+def main():
+    frase = (input("Ingrese la frase: "))
+    ancho = int(input("Ingrese el ancho total a ser usado: ")) - 2
+    dot = "\'"
+
+    justificado(frase, ancho, dot)
 
 main()
