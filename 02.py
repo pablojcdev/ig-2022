@@ -196,6 +196,8 @@ main()
 
 # Ej. 8:
 
+'''
+
 def justificado(dot, ancho, alto):
     print('\n{dot}'.format(dot=dot*ancho)*alto)
 
@@ -207,3 +209,5 @@ def main():
     justificado(dot, ancho, alto)
 
 main()
+
+'''
