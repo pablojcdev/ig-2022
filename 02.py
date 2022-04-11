@@ -178,6 +178,8 @@ main()
 
 # Ej. 7:
 
+'''
+
 def justificado(frase, ancho, dot):
     print('{dot}{frase:>{ancho}}{dot2}'.format(dot=dot, frase=frase, ancho=ancho, dot2=dot))
 
@@ -187,5 +189,21 @@ def main():
     dot = "\'"
 
     justificado(frase, ancho, dot)
+
+main()
+
+'''
+
+# Ej. 8:
+
+def justificado(dot, ancho, alto):
+    print('\n{dot}'.format(dot=dot*ancho)*alto)
+
+def main():
+    ancho = int(input("Ingrese ancho: "))
+    alto = int(input("Ingrese alto: "))
+    dot = "*"
+
+    justificado(dot, ancho, alto)
 
 main()
