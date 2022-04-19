@@ -144,6 +144,8 @@ main()
 
 # Ej. 6:
 
+'''
+
 def hl(num1):
     m = "mayor"
     if num1 % 2 == 0:
@@ -164,5 +166,48 @@ def main():
     num2 = int(input())
     
     check(num1, num2, hl(num1))
+
+main()
+
+'''
+
+# Ej. 7:
+
+def mayor(num1, num2):
+    m = num1
+    if num2 > num1:
+        m = num2
+    return m
+
+def menor(num1, num2):
+    min = num1
+    if num2 < num1:
+        min = num2
+    return min
+
+def mid(num1, num2, num3):
+    min = num3
+    if num1 > num2 and num1 < num3:
+        min = num1
+    elif num2 > num1 and num2 < num3:
+        min = num2
+    return min
+
+def check(m, min, mid):
+    r = "NO Están igualmente distanciados!"
+    if m - mid == mid - min:
+        r = "Están igualmente distanciados!"
+    return r
+
+def main():
+    num1 = int(input("Ingrese el primer número: "))
+    num2 = int(input("Ingrese el segundo número: "))
+    num3 = int(input("Ingrese el tercer número: "))
+
+    mimayor = (mayor(num1, mayor(num2, num3)))
+    mimenor = (menor(num1, menor(num2, num3)))
+    mimid = (mid(num1, num2, num3))
+
+    print(check(mimayor, mimenor, mimid))
 
 main()
