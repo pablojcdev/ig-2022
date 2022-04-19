@@ -86,6 +86,8 @@ main()
 
 # Ej. 4:
 
+'''
+
 def mayor(num1, num2):
     m = num1
     if num2 > num1:
@@ -114,5 +116,53 @@ def main():
     num = highest - lowest
 
     print(valid(highest, lowest, num), "cumple la condicion.")
+
+main()
+
+'''
+
+# Ej. 5:
+
+'''
+
+def valid(d, m, y):
+    r = "La fecha es incorrecta."
+    if d >= 1 and d <= 29 and m >= 1 and m <= 12:
+        r = "La fecha es correcta."
+    print(r)
+
+def main():
+    d = int(input("Ingrese el dia: "))
+    m = int(input("Ingrese el mes: "))
+    y = int(input("Ingrese el año: "))
+
+    valid(d, m, y)
+
+main()
+
+'''
+
+# Ej. 6:
+
+def hl(num1):
+    m = "mayor"
+    if num1 % 2 == 0:
+        m = "menor"    
+    return m
+
+def check(num1, num2, m):
+    if m == "mayor" and num2 > num1:
+        print("Correcto!")
+    elif m == "menor" and num2 < num1:
+        print("Correcto!")
+    else:
+        print("Incorrecto!")        
+
+def main():
+    num1 = int(input("Ingrese un número entero positivo: "))
+    print("Ingrese un número", hl(num1), "que", str(num1) + ": ", end="") 
+    num2 = int(input())
+    
+    check(num1, num2, hl(num1))
 
 main()
