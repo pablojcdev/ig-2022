@@ -92,9 +92,27 @@ def mayor(num1, num2):
         m = num2
     return m
 
+def menor(num1, num2):
+    min = num1
+    if num2 < num1:
+        min = num2
+    return min
+
+def valid(highest, lowest, num):
+    r = "NO"
+    if num >= lowest and num <= highest:
+        r = "SI"
+    return r
+
 def main():
     num1 = int(input("Ingrese un número A: "))
     num2 = int(input("Ingrese un número B: "))
 
-    print(mayor(num1, num2))
+    highest = mayor(num1, num2)
+    lowest = menor(num1, num2)
+
+    num = highest - lowest
+
+    print(valid(highest, lowest, num), "cumple la condicion.")
+
 main()
