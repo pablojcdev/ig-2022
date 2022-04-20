@@ -218,6 +218,8 @@ main()
 
 #Ej. 8:
 
+'''
+
 def rec(num1, num2, num3):
     num4 = 0
     if num1 < 4 or num2 < 4 or num3 < 4:
@@ -253,5 +255,49 @@ def main():
     micheck = check(num1, num2, num3, mirec, miprom)
 
     print("El alumno", micheck)
+
+main()
+
+'''
+
+#Ej. 9:
+
+def bono(s, p):
+    b = s + s*0.20 + p
+    if s >= 2000:
+        b = s + s*0.15 + p
+    return b
+
+def plus(h_p, c_p):
+    p = h_p + c_p
+    return p
+
+def plusH(s, h):
+    h_p = 0
+    if h == "s":
+        h_p = s*0.05
+    return h_p
+
+def plusC(s, c, h):
+    c_p = s*0.1
+    if c >= 4 and c <=6:
+        c_p = s*0.12
+    if c >= 7 and c <=9:
+        c_p = s*0.2
+        if h == "s":
+            c_p = s*0.2 - s*0.05
+    return c_p
+
+def main():
+    s = int(input("Ingrese el sueldo Base: "))
+    h = (input("Tiene hijos (s/n)?: "))
+    c = int(input("Ingrese categoría (1 - 9): "))
+
+    mip_h = plusH(s, h)
+    mip_c = plusC(s, c, h)
+    mip = plus(mip_h, mip_c)
+    mibono = bono(s, mip)
+
+    print("El sueldo total será de", mibono)
 
 main()
