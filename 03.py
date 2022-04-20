@@ -173,6 +173,8 @@ main()
 
 # Ej. 7:
 
+'''
+
 def mayor(num1, num2):
     m = num1
     if num2 > num1:
@@ -209,5 +211,47 @@ def main():
     mimid = (mid(num1, num2, num3))
 
     print(check(mimayor, mimenor, mimid))
+
+main()
+
+'''
+
+#Ej. 8:
+
+def rec(num1, num2, num3):
+    num4 = 0
+    if num1 < 4 or num2 < 4 or num3 < 4:
+        num4 = int(input("Ingrese la nota del recuperatorio: "))    
+    return num4
+
+def promedio(num1, num2, num3, num4):
+    prom = (num1 + num2 + num3) / 3
+    if num4 != 0:
+        prom = (num1 + num2 + num3 + num4) / 4
+    return prom
+
+def check(num1, num2, num3, num4, prom):
+    f = "promociona la materia."
+    if prom > 4 and prom < 7:
+        f = "debe rendir examen final."
+    elif prom < 4:
+        f = "fue aplazado."
+        if num4 != 0 and num4 >= 4:
+            f = "debe rendir examen final."
+    return f
+
+def main():
+    num1 = int(input("Ingrese la nota del primer parcial: "))
+    num2 = int(input("Ingrese la nota del segundo parcial: "))
+    num3 = int(input("Ingrese la nota del tercer parcial: "))
+
+    mirec = rec(num1, num2, num3)
+    miprom = promedio(num1, num2, num3, mirec)
+
+    print("\nPromedio general = ", miprom)
+    
+    micheck = check(num1, num2, num3, mirec, miprom)
+
+    print("El alumno", micheck)
 
 main()
