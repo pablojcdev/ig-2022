@@ -308,6 +308,8 @@ main()
 
 #Ej. 10:
 
+'''
+
 def multa(v, max, e):
     min = max / 2
     if v >= min and v <= max:
@@ -329,8 +331,31 @@ def multa(v, max, e):
 def main():
     v = int(input("Velocidad del vehículo: "))
     max = int(input("velocidad máxima: "))
-    e = (input("Emergencia (s/n): ")) #DEBE CONTESTAR EN MAYUSCULA O MINUSCULA
+    e = (input("Emergencia (s/n): "))
 
     print(multa(v, max, e))
+    
+main()
+
+'''
+
+# Ej. 11:
+
+def mensaje(o, f, t):
+    r = "No es posible cubrir el tendido."
+    five = t // 5
+    one = t - five * 5
+    f_qn = t - one
+    if o >= one and f >= f_qn:
+        return "Es posible"
+
+    return r
+
+def main():
+    o = int(input("Cantidad de caños de 1 metro: "))
+    f = int(input("Cantidad de caños de 5 metros: "))
+    t = int(input("Metros totales a cubrir: "))
+
+    print(mensaje(o, f, t))
     
 main()
