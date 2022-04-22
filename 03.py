@@ -316,12 +316,12 @@ def multa(v, max, e):
         r = "Advertencia"
         if e == "S" or e == "s":
             r = "No recibe multa"
+    elif v >= min - (min*0.15) and v <= min:
+        r = "Advertencia"
     elif v >= max + (max*0.15):
         r = "Recibe multa por exceso de velocidad"
         if e == "S" or e == "s":
             r = "No recibe multa"
-    elif v >= min - (min*0.15) and v <= min:
-        r = "Advertencia"
     elif v <= min - (min*0.15):
         r = "Recibe multa por entorpecer el tránsito"
     return r
