@@ -262,6 +262,8 @@ main()
 
 #Ej. 9:
 
+'''
+
 def bono(s, p):
     b = s + s*0.20 + p
     if s >= 2000:
@@ -300,4 +302,35 @@ def main():
 
     print("El sueldo total será de", mibono)
 
+main()
+
+'''
+
+#Ej. 10:
+
+def multa(v, max, e):
+    min = max / 2
+    if v >= min and v <= max:
+        r = "No recibe multa"
+    elif v <= max + (max*0.15) and v >= max:
+        r = "Advertencia"
+        if e == "S" or e == "s":
+            r = "No recibe multa"
+    elif v >= max + (max*0.15):
+        r = "Recibe multa por exceso de velocidad"
+        if e == "S" or e == "s":
+            r = "No recibe multa"
+    elif v >= min - (min*0.15) and v <= min:
+        r = "Advertencia"
+    elif v <= min - (min*0.15):
+        r = "Recibe multa por entorpecer el tránsito"
+    return r
+
+def main():
+    v = int(input("Velocidad del vehículo: "))
+    max = int(input("velocidad máxima: "))
+    e = (input("Emergencia (s/n): ")) #DEBE CONTESTAR EN MAYUSCULA O MINUSCULA
+
+    print(multa(v, max, e))
+    
 main()
