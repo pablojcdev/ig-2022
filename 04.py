@@ -50,6 +50,8 @@ main()
 
 # Ej. 4:
 
+'''
+
 def func(num):
     c = 0
     r = "No es perfecto"
@@ -64,5 +66,31 @@ def func(num):
 def main():
     n = int(input("Ingrese un numero entero positivo; "))
     print(func(n))
+
+main()
+
+'''
+
+# Ej. 5:
+
+def cond(n):
+    n1 = (n // 1) % 10
+    n2 = (n // 10) % 10
+    n3 = (n // 100) % 10
+    n4 = (n // 1000) % 10
+
+    n = n1 + n2*10 + n3*100 + n4*1000
+
+    if n1+n3 == n2+n4:
+        print(n)
+
+def true():
+    for num in range(1000, 10000):
+        cond(num)
+
+def main():
+    n = int(input("Ingrese un numero entero positivo; "))
+    cond(n)
+    true()
 
 main()
