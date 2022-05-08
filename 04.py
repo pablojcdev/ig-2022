@@ -48,6 +48,29 @@ main()
 
 '''
 
+# Ej. 3:
+
+'''
+
+def EsPrimo(num):
+    for i in range(2, num):
+        if num % i == 0:
+            break
+    else:
+        print(num)
+
+def Range(num):
+    for num in range(1, num + 1):
+        EsPrimo(num)
+
+def main():
+    num = int(input("Num: "))
+    Range(num)
+
+main()
+
+'''
+
 # Ej. 4:
 
 '''
@@ -73,6 +96,8 @@ main()
 
 # Ej. 5:
 
+'''
+
 def cond(n):
     n1 = (n // 1) % 10
     n2 = (n // 10) % 10
@@ -92,5 +117,66 @@ def main():
     n = int(input("Ingrese un numero entero positivo; "))
     cond(n)
     true()
+
+main()
+
+'''
+
+# Ej. 6:
+
+'''
+
+def aBinario(i):
+    binario = ""
+    c = ""
+    while i != 0:
+        c = i%2
+        i = i//2
+        # print(c, end="")
+        binario = str(c) + binario
+    return binario
+
+def main():
+    n = int(input("Ingrese un numero decimal: "))
+    print(aBinario(n))
+
+main()
+
+'''
+
+# Ej. 7:
+
+def notas():
+    n = ""
+    c = 0
+    a = 0
+    apr = 0
+    prom = 0
+    st = 0
+    while n != 0:
+        n = int(input("Ingrese nota: "))
+        if n > 0 and n <=10:
+            c += 1
+            st = st + n
+            if n > 0 and n <= 3:
+                a += 1
+            elif n >= 4 and n <= 7:
+                apr += 1
+            elif n > 7 and n <= 10:
+                prom += 1
+
+    p_a = (a*100)/c
+    p_apr = (apr*100)/c
+    p_prom = (prom*100)/c
+
+    promg = st / c
+
+    print("\nCantidad de aplazos: {} ({:.2f}%)".format(a, p_a))
+    print("Cantidad de aprobados: {} ({:.2f}%)".format(apr, p_apr))
+    print("Cantidad de promocionados: {} ({:.2f}%)".format(prom, p_prom))
+    print("Promedio general: {:.2f}".format(promg))
+
+def main():
+    notas()
 
 main()
