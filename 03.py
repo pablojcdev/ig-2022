@@ -341,6 +341,8 @@ main()
 
 # Ej. 11:
 
+'''
+
 def mensaje(o, f, t):
     r = "No es posible cubrir el tendido."
     five = t // 5
@@ -358,4 +360,17 @@ def main():
 
     print(mensaje(o, f, t))
     
+main()
+
+'''
+
+def manu(num1, num2):
+    num3 = num1 + num2
+    return num3
+
+def main():
+    años1 = 2
+    años2 = 3
+    print(manu(años1, años2))
+
 main()
