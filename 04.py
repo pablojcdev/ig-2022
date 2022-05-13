@@ -146,6 +146,7 @@ main()
 
 # Ej. 7:
 
+'''
 def notas():
     n = ""
     c = 0
@@ -178,5 +179,28 @@ def notas():
 
 def main():
     notas()
+
+main()
+'''
+
+# Ej. 8:
+
+def valid():
+    n = int(input("aasd: "))
+    while n < 0:
+        print("No se cpuede calcular el factorial de un numero negativo", end="")
+        n = int(input("aasd: "))
+    return n
+
+def factorial(n):
+    r = 1
+    while n > 1:
+        r = r * n
+        n -= 1
+    return r
+    
+def main():
+    n = valid()
+    print(factorial(n))    
 
 main()
