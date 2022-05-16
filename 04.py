@@ -53,11 +53,20 @@ main()
 '''
 
 def EsPrimo(num):
-    for i in range(2, num):
-        if num % i == 0:
-            break
-    else:
-        print(num)
+
+    # for i in range(2, num):
+    #     if num % i == 0:
+    #         break
+    # else:
+    #     print(num)
+
+    es_primo = True
+    i = 2
+    while i < n and es_primo:
+        if n%i == 0:
+            es_primo = False
+        i = i+1
+    return es_primo and n!1
 
 def Range(num):
     for num in range(1, num + 1):
@@ -185,8 +194,10 @@ main()
 
 # Ej. 8:
 
+'''
+
 def valid():
-    n = int(input("aasd: "))
+    n = int(input("Ingrese un número entero: "))
     while n < 0:
         print("No se cpuede calcular el factorial de un numero negativo", end="")
         n = int(input("aasd: "))
@@ -202,5 +213,26 @@ def factorial(n):
 def main():
     n = valid()
     print(factorial(n))    
+
+main()
+
+'''
+
+# Ej. 9:
+
+def capicua(n):
+    r = "No es"
+    st = ""
+    l = (len(str(n)))
+    for i in range (0, l):
+        cifras = (n//10**i)%10
+        st += str(cifras)
+    if int(st) == n:
+        r = "Es capicua"
+    return r
+
+def main():
+    n = int(input("Número entero positivo(de hasta nueve cifras): "))
+    print(capicua(n))
 
 main()
