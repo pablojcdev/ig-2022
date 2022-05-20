@@ -36,6 +36,7 @@ main()
 
 # Ej. 3:
 
+'''
 def esLetra2(car):
     res = False
     acentos = car in "áéíóúüñÁÉÍÓÚÜÑ"
@@ -63,3 +64,28 @@ def main():
     print(pal(p))
 
 main()
+'''
+
+# Ej. 4:
+
+# def cumple(txt):
+#     r = False
+#     if txt[:3] == txt[-3:]:
+#         r = True
+#         print("asd")
+#     return r
+
+def main():
+    txt = "asd 123 asd"
+    print(txt[:3])
+    print(txt[-3:])
+    # cumple(txt)
+
+main()
+
+# Usar el ultimo algoritmo y guardar la primer palabra que se encuentra y compararla con la ultima
+# Encontrar la primera palabra con un contador que sea = 1 y 
+
+# 5
+
+# res 0 x[len(x)//2:] + x[:len(x)//2]
