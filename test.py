@@ -6,7 +6,7 @@ from selenium.webdriver.support import expected_conditions as EC
 import requests
 from bs4 import BeautifulSoup
 
-link = "https://forum.mir4global.com/rank?ranktype=1&worldgroupid=22&worldid=137&classtype=&searchname=&loaded=1"
+link = "https://forum.mir4global.com/rank?ranktype=1&worldgroupid=22&worldid=137&classtype=&searchname=&loaded=1&liststyle=ol&page=1"
 
 with webdriver.Chrome() as driver:
     driver.get(link)

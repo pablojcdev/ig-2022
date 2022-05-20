@@ -220,6 +220,7 @@ main()
 
 # Ej. 9:
 
+'''
 def capicua(n):
     r = "No es"
     st = ""
@@ -236,3 +237,44 @@ def main():
     print(capicua(n))
 
 main()
+
+'''
+
+# Ej. 10:
+
+'''
+def valid(msg):
+    ent = int(input("Ingrese " + msg + ": "))
+    while ent < 2:
+        print("Error, debee ser mayor o igual a 2. ", end="")
+        ent = int(input("Ingrese " + msg + ": "))
+    return ent
+
+def figura(b, h):
+    for f in range (0, h):
+        for c in range (0, b):
+            print("* ", end="")
+        print()
+
+figura()
+
+def main():
+    b = valid("base")
+    h = valid("altura")
+    figura(b, h)
+
+main()
+'''
+
+# Ej. 11:
+
+def figura(b, h):
+    for f in range (0, h):
+        for c in range (0, b):
+            if f == 0 or c == 0 or c == b-1 or f == h-1:
+                print("* ", end="")
+            else:
+                print("  ", end="")
+        print()
+
+figura(7, 4)
