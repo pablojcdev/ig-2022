@@ -323,6 +323,7 @@ Número no válido. Ingrese base: 11
 Observar en la figura que su base tiene 11 y la altura tiene 6 .
 '''
 
+'''
 def figura(b):
     for f in range (0, b):
         for c in range (0, b):
@@ -331,4 +332,47 @@ def figura(b):
             else:
                 print("* ", end="")
         print()
+
 figura(11)
+'''
+
+# Ej. 14
+
+'''
+Ingrese altura: 7
+*
+***
+*****
+*******
+*****
+***
+*
+'''
+
+'''
+def figura(b):
+    for f in range (0, b):
+        for c in range (0, b):
+            if f < c or f+c>b-1:
+                print("  ", end="")
+            else:
+                print("* ", end="")
+        print()
+        
+figura(11)
+'''
+
+# Ej. 15:
+
+'''
+Ingrese diagonal: 8
+Valor incorrecto. Ingrese diagonal: 7
+   *
+  ***
+ *****
+*******
+ *****
+  ***
+   *
+'''
+
