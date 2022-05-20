@@ -268,6 +268,7 @@ main()
 
 # Ej. 11:
 
+'''
 def valid(msg):
     ent = int(input("Ingrese " + msg + ": "))
     while ent < 2:
@@ -289,3 +290,19 @@ def main():
     h = valid("altura")
     figura(b, h)
 
+'''
+
+# Ej. 12:
+
+def figura(b):
+    for f in range (0, b):
+        for c in range (0, b):
+            if f > c or f == c:
+                print("* ", end="")
+                # print("(", f, ":", c, ")", end="")
+            else:
+                # print(" "*9, end="")
+                print("  ", end="")
+        print()
+
+figura(5)
