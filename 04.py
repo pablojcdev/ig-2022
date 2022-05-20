@@ -268,6 +268,13 @@ main()
 
 # Ej. 11:
 
+def valid(msg):
+    ent = int(input("Ingrese " + msg + ": "))
+    while ent < 2:
+        print("Error, debee ser mayor o igual a 2. ", end="")
+        ent = int(input("Ingrese " + msg + ": "))
+    return ent
+
 def figura(b, h):
     for f in range (0, h):
         for c in range (0, b):
@@ -277,4 +284,8 @@ def figura(b, h):
                 print("  ", end="")
         print()
 
-figura(7, 4)
+def main():
+    b = valid("base")
+    h = valid("altura")
+    figura(b, h)
+
