@@ -376,3 +376,13 @@ Valor incorrecto. Ingrese diagonal: 7
    *
 '''
 
+def figura(b):
+    for f in range (0, b):
+        for c in range (0, b):
+            if f+1 <= c or f+c-1>=b-1: #or f-3 >= c: #or f+c-2>b-1:
+                print("  ", end="")
+            else:
+                print("* ", end="")
+        print()
+        
+figura(7)
