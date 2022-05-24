@@ -68,24 +68,66 @@ main()
 
 # Ej. 4:
 
-# def cumple(txt):
-#     r = False
-#     if txt[:3] == txt[-3:]:
-#         r = True
-#         print("asd")
-#     return r
+'''
+def esLetra2(car):
+    res = False
+    acentos = car in "áéíóúüñÁÉÍÓÚÜÑ"
+    if ((car>='a'and car<='z') or (car>='A' and car<='Z') or acentos  ):
+        res = True
+    return res
 
-def main():
-    txt = "asd 123 asd"
-    print(txt[:3])
-    print(txt[-3:])
-    # cumple(txt)
+def verPal(frase):
+    res = ""
+    i=0                                               # inicializar 
+    largoFrase = len(frase)                           # largo de la frase
+    s = ""
+    c = 0
+    ult = ""
+    while i<largoFrase :
+        pal=""                              # mientras no se termine #     la frase       
+        while i<largoFrase and not esLetra2(frase[i]): # recorre lo "no" letra
+            i+=1                                      # salto de a uno  
+        while i<largoFrase and esLetra2(frase[i]):     #recorre "lo que es" letra
+            pal = pal + frase[i]                      #carga la palabra
+            i+=1
+        if pal != "":
+            c += 1
+            if c == 1:
+                s = s + pal
+            if i == largoFrase-1:
+                ult = pal
+        if pal!="": 
+            print(pal)
+            # res = res + pal + "\n"         
+    # return res
+    print("primera:" + s)
+    print("ultima:" + ult)
 
-main()
+# me ayudo manuel con la variable ult
+
+verPal("Hombre de poca fe, he dicho! Vamos, vamos hombre!")
 
 # Usar el ultimo algoritmo y guardar la primer palabra que se encuentra y compararla con la ultima
 # Encontrar la primera palabra con un contador que sea = 1 y 
+'''
 
-# 5
+# Ej. 5:
 
-# res 0 x[len(x)//2:] + x[:len(x)//2]
+def valid(x):
+    lx = len(x)
+    while (lx % 2) != 0 or lx < 2:
+        print("Error. ", end="")
+        x = input("Ingrese un texto: ")
+        lx = len(x)
+    return x
+
+def rotacion(x):
+    x = valid(x)
+    res = x[len(x)//2:] + x[:len(x)//2]
+    print(res)
+
+def main():
+    x = input("Ingrese un texto: ")
+    rotacion(x)
+
+main()
