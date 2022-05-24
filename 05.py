@@ -78,17 +78,17 @@ def esLetra2(car):
 
 def verPal(frase):
     res = ""
-    i=0                                               # inicializar 
-    largoFrase = len(frase)                           # largo de la frase
+    i=0                                             
+    largoFrase = len(frase)                         
     s = ""
     c = 0
     ult = ""
     while i<largoFrase :
-        pal=""                              # mientras no se termine #     la frase       
-        while i<largoFrase and not esLetra2(frase[i]): # recorre lo "no" letra
-            i+=1                                      # salto de a uno  
-        while i<largoFrase and esLetra2(frase[i]):     #recorre "lo que es" letra
-            pal = pal + frase[i]                      #carga la palabra
+        pal=""                              
+        while i<largoFrase and not esLetra2(frase[i]): 
+            i+=1                                      
+        while i<largoFrase and esLetra2(frase[i]):    
+            pal = pal + frase[i]                      
             i+=1
         if pal != "":
             c += 1
@@ -113,6 +113,7 @@ verPal("Hombre de poca fe, he dicho! Vamos, vamos hombre!")
 
 # Ej. 5:
 
+'''
 def valid(x):
     lx = len(x)
     while (lx % 2) != 0 or lx < 2:
@@ -131,3 +132,55 @@ def main():
     rotacion(x)
 
 main()
+'''
+
+# Ej. 6:
+
+'''
+def esLetra2(car):
+    res = False
+    acentos = car in "áéíóúüñÁÉÍÓÚÜÑ"
+    if ((car>='a'and car<='z') or (car>='A' and car<='Z') or acentos  ):
+        res = True
+    return res
+
+def carAMayu(car):
+    if car>='a' and car<='z':
+        car = chr(ord (car)-32)    
+    return car
+
+def palAMayu (pal):
+    i=0
+    palMay = ""
+    while i<len(pal):
+        palMay = palMay + carAMayu(pal[i])
+        i=i+1    
+    return palMay
+
+def palindroma(frase):
+    res = ""
+    i=0                                             
+    largoFrase = len(frase)                        
+    while i<largoFrase :
+        pal=""                              
+        while i<largoFrase and not esLetra2(frase[i]): 
+            i+=1                                      
+        while i<largoFrase and esLetra2(frase[i]):    
+            pal = pal + frase[i]                      
+            i+=1
+        if pal!="": 
+            res = res + pal
+    return res
+
+def main():
+    r = palAMayu(palindroma("Así Ramona va, no Marisa"))
+    rr = palAMayu(palindroma("Así Ramona va, no Marisa"))[::-1]
+    print(r)
+    print(rr)
+
+main()
+
+# Sacar el acento de la palabra a convertir
+'''
+
+# Ej. 7:
