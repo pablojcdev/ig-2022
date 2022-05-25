@@ -203,14 +203,13 @@ print(contarCad("o sea","Bueno, yo o sea, este … o sea, o sea"))
 
 # Ej. 8:
 
+'''
 def esletra(x):
     res = False
     acentos = x in "áéíóúÁÉÍÓÚ"
     if (x >= "a" and x <= "z") or (x >= "A" and x <= "Z") or acentos:
         res = True
     return res
-
-# print(esletra(" "))
 
 def texto(frase):
     i = 0
@@ -235,3 +234,51 @@ def texto(frase):
     return res
 
 print(texto("Soy el hombre más sabio de la tierra"))
+'''
+# Ej. 9:
+
+def esletra(x):
+    res = False
+    acentos = x in "áéíóúÁÉÍÓÚ"
+    if (x >= "a" and x <= "z") or (x >= "A" and x <= "Z") or acentos:
+        res = True
+    return res
+
+def texto(frase):
+    i = 0
+    lf = len(frase)
+    c = 0
+    res = ""
+    pml = ""
+    pmc = ""
+    lpml = 0
+    lpmc = 0
+    lp = 0
+    while i<lf:
+        pal = ""
+        while i<lf and not esletra(frase[i]):
+            i += 1
+        while i<lf and esletra(frase[i]):
+            pal = pal + frase[i]
+            i += 1
+        if pal != "":
+            c += 1
+            lp = len(pal)
+            res = res + pal + " "
+            if lp >= lpml:
+                pml = pal
+                lpml = len(pml)
+            if c == 1:
+                if lp <= lp:
+                    pmc = pal
+                    lpmc = len(pmc)
+            else: 
+                if lp <= lpmc:
+                    pmc = pal
+                    lpmc = len(pmc)
+            print(c, lp)
+    print(c)
+    print(pml, pmc)
+    return res
+
+print(texto("Si hay problema serio, la nave vuelve a la base"))
