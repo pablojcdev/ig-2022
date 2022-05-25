@@ -184,3 +184,17 @@ main()
 '''
 
 # Ej. 7:
+
+def contarCad(cad, frase):       
+    i = 0
+    lc = len(cad)
+    lf = len(frase)
+    c = 0
+    while i<lf:
+        r = frase[i:lc+i]
+        if r == cad:
+            c += 1
+        i += 1
+    print(c)
+
+print(contarCad("o sea","Bueno, yo o sea, este … o sea, o sea"))
