@@ -185,6 +185,7 @@ main()
 
 # Ej. 7:
 
+'''
 def contarCad(cad, frase):       
     i = 0
     lc = len(cad)
@@ -198,3 +199,39 @@ def contarCad(cad, frase):
     print(c)
 
 print(contarCad("o sea","Bueno, yo o sea, este … o sea, o sea"))
+'''
+
+# Ej. 8:
+
+def esletra(x):
+    res = False
+    acentos = x in "áéíóúÁÉÍÓÚ"
+    if (x >= "a" and x <= "z") or (x >= "A" and x <= "Z") or acentos:
+        res = True
+    return res
+
+# print(esletra(" "))
+
+def texto(frase):
+    i = 0
+    lf = len(frase)
+    res = ""
+    palm = ""
+    mayusculas = ("ABCDEFGHIJKLMNOPQRSTUVWXYZ")
+    while i<lf:
+        pal = ""
+        palm = ""
+        while i<lf and not esletra(frase[i]):
+            i += 1
+        while i<lf and esletra(frase[i]):
+            pal = pal + frase[i]
+            i += 1
+        if pal != "":
+            if pal[0] not in mayusculas:
+                palm = palm + (chr(ord(pal[0]) - 32))
+            elif pal[0] in mayusculas:
+                palm = palm + pal[0]
+            res = res + palm + pal[1:] + " "
+    return res
+
+print(texto("Soy el hombre más sabio de la tierra"))
