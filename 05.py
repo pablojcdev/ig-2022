@@ -318,10 +318,14 @@ def algoritmo(p, t):
                 res = True
     return res
 
-print(algoritmo("casa", "casa bella"))
-print(algoritmo("casa", "el lo saca"))
-print(algoritmo("casa", "casada la bella"))
+def main():
+    t = input("Texto: ")
+    p = input("Palabra: ")
+    print(algoritmo(p, t))
 
-# algoritmo("casa", "casada la bella")
+main()
 
+# print(algoritmo("casa", "casa bella"))
+# print(algoritmo("casa", "el lo saca"))
+# print(algoritmo("casa", "casada la bella"))
 
