@@ -237,6 +237,8 @@ print(texto("Soy el hombre más sabio de la tierra"))
 '''
 # Ej. 9:
 
+'''
+
 def esletra(x):
     res = False
     acentos = x in "áéíóúÁÉÍÓÚ"
@@ -282,3 +284,44 @@ def texto(frase):
     return res
 
 print(texto("Si hay problema serio, la nave vuelve a la base"))
+
+'''
+
+# Ej. 10:
+
+def esletra(x):
+    res = False
+    acentos = x in "áéíóúÁÉÍÓÚ"
+    if (x>="a" and x<="z") or (x>="A" and x<="Z") or acentos:
+        res = True
+    return res
+
+def algoritmo(p, t):
+    i = 0
+    lt = len(t)
+    res = False
+    while i < lt:
+        pal = ""
+        resps = 0
+        while i < lt and not esletra(t[i]):
+            i+=1
+        while i < lt and esletra(t[i]):
+            pal = pal + t[i]
+            i+=1
+        if pal != "":
+            resp = False
+            for x in p:
+                if x in pal:
+                    resp = True
+                resps = resps + resp
+            if resps == len(pal):
+                res = True
+    return res
+
+print(algoritmo("casa", "casa bella"))
+print(algoritmo("casa", "el lo saca"))
+print(algoritmo("casa", "casada la bella"))
+
+# algoritmo("casa", "casada la bella")
+
+
