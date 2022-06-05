@@ -67,6 +67,7 @@ cargarlista()
 
 # Ej. 3:
 
+'''
 def estanEnLista(n, l):
     res = False
     if n in l:
@@ -96,7 +97,7 @@ def ordenarLista(l):
     return l
 
 # PREGUNTAR porque la unica forma de hacer que
-# retorne dos valores (a, b)
+# funcione es que retorne dos valores (a, b)
 ''' 
 def cargarConjuntos():
     a = cargarLista()
@@ -140,10 +141,8 @@ def menu():
     print("1. CARGAR CONJUNTOS \n2. SALIR")
     x = int(input("Ingrese el valor de la opción: "))
     if x == 1:
-        # a = cargarLista()
-        # b = cargarLista()
-        a = [1, 7, 3, 5]
-        b = [2, 8, 5, 9, 7]
+        a = cargarLista()
+        b = cargarLista()
         print("1. UNION\n2. INTERSECCION\n3. DIFERENCIA (A-B)\n4. DIFERENCIA SIMETRICA")
         u = int(input("Ingrese el valor de la opción: "))
         if u == 1:
@@ -159,5 +158,50 @@ def menu():
 
 def main():
     menu()
+
+main()
+'''
+
+# Ej. 4:
+
+from random import randint
+
+def maxv(ls):
+    max = 0
+    for x in range(0, len(ls)):
+        if ls[x] >= max:
+            max = ls[x]
+    return max
+
+# def minv(ls):
+#     i = 0
+#     min = ls[i]
+#     while i < len(ls):
+#         if ls[i] <= min:
+#             min = ls[i]
+#         i += 1
+#     return min
+
+def minv(ls):
+    min = ls[0]
+    for x in range(0, len(ls)):
+        if ls[x] <= min:
+            min = ls[x]
+    return min
+
+def cargarListaAleat(a, b, x):
+    ls = []
+    for x in range(0, x):
+        v = randint(a, b)
+        ls.append(v)
+    print(ls)
+    print(maxv(ls))
+    print(minv(ls))
+
+def main():    
+    a = int(input("Rango inferior: "))
+    b = int(input("Rango superior: "))
+    x = int(input("Cantidad de numeros aleatorios a generar: "))
+    cargarListaAleat(a, b, x)
 
 main()
