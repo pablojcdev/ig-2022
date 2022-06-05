@@ -164,6 +164,7 @@ main()
 
 # Ej. 4:
 
+'''
 from random import randint
 
 def maxv(ls):
@@ -205,3 +206,18 @@ def main():
     cargarListaAleat(a, b, x)
 
 main()
+'''
+
+# Ej. 5:
+
+def enLista(x, ls):
+    res = False
+    if x in ls:
+        res = True
+    return res
+
+def cargarLista():
+    ls = []
+    i = int(input("Ingrese un numero: "))
+    if enLista(i, ls):
+        
