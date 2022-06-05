@@ -40,6 +40,7 @@ print(estaenLista3(23, []))
 
 # Ej. 2:
 
+'''
 def estaenLista1(n, l):
     res = False
     if n in l:
@@ -62,3 +63,101 @@ def cargarlista():
     print(l)
 
 cargarlista()
+'''
+
+# Ej. 3:
+
+def estanEnLista(n, l):
+    res = False
+    if n in l:
+        res = True
+    return res
+
+def cargarLista():
+    l = []
+    n = int(input("Ingrese un numero: "))
+    while n != 0:
+        n = int(input("Ingrese un numero: "))
+        if estanEnLista(n, l):
+            print("Ya esta en lista. ", end = "")
+        if n < 0: 
+            print("Debe ser positivo. ", end = "")
+        if n > 0 and not estanEnLista(n, l):
+            l.append(n)
+
+def ordenarLista(l):
+    ll = len(l)
+    for x in range(0, ll-1):
+        for u in range(x+1, ll):
+            if l[x]>l[u]: 
+                aux = l[x]
+                l[x] = l[u]
+                l[u] = aux
+    return l
+
+# PREGUNTAR porque la unica forma de hacer que
+# retorne dos valores (a, b)
+''' 
+def cargarConjuntos():
+    a = cargarLista()
+    b = cargarLista()
+'''
+
+def union(a, b):
+    for x in range(0, len(a)):
+        if a[x] not in b:
+            b.append(a[x])
+    print(ordenarLista(b))
+
+def interseccion(a, b):
+    nv = []
+    for x in range(0, len(a)):
+        if a[x] in b:
+            nv.append(a[x])
+    print(ordenarLista(nv))
+
+def diferencia(a, b):
+    for x in range(0, len(b)):
+        if b[x] in a:
+            a.remove(b[x])
+    print(a)
+
+def diferenciaSimetrica(a, b):
+    c = [] + b
+    for x in range(0, len(a)):
+        if a[x] not in b:
+            c.append(a[x])
+    ordenarLista(c)    
+    i = 0
+    while i < len(c):
+        if c[i] in a and c[i] in b:
+            c.remove(c[i])
+        else:
+            i += 1
+    print(c)
+
+def menu():
+    print("1. CARGAR CONJUNTOS \n2. SALIR")
+    x = int(input("Ingrese el valor de la opción: "))
+    if x == 1:
+        # a = cargarLista()
+        # b = cargarLista()
+        a = [1, 7, 3, 5]
+        b = [2, 8, 5, 9, 7]
+        print("1. UNION\n2. INTERSECCION\n3. DIFERENCIA (A-B)\n4. DIFERENCIA SIMETRICA")
+        u = int(input("Ingrese el valor de la opción: "))
+        if u == 1:
+            union(a, b)
+        elif u == 2:
+            interseccion(a, b)
+        elif u == 3:
+            diferencia(a, b)
+        else:
+            diferenciaSimetrica(a, b)
+    else:
+        print("Adeus")
+
+def main():
+    menu()
+
+main()
