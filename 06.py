@@ -99,6 +99,9 @@ def ordenarLista(l):
 # PREGUNTAR porque la unica forma de hacer que
 # funcione es que retorne dos valores (a, b)
 ''' 
+from random import randint
+
+
 def cargarConjuntos():
     a = cargarLista()
     b = cargarLista()
@@ -210,6 +213,8 @@ main()
 
 # Ej. 5:
 
+from random import randint
+
 def enLista(x, ls):
     res = False
     if x in ls:
@@ -219,5 +224,20 @@ def enLista(x, ls):
 def cargarLista():
     ls = []
     i = int(input("Ingrese un numero: "))
-    if enLista(i, ls):
-        
+    while i != 0:
+        if enLista(i, ls):
+            print("Ya esta en lista. ", end="")
+            i = int(input("Ingrese un numero: "))
+        elif i < 0:
+            print("Debe ser un numero positivo. ", end="")
+            i = int(input("Ingrese un numero: "))
+        elif i > 0 and not enLista(i, ls):
+            ls.append(i)
+            i = int(input("Ingrese un numero: "))
+
+def cambiaLista(ls, a, b):
+    for x in range(0, len(ls)):
+        if ls[x] < a or ls[x] > b:
+            ls[x] = randint(a, b)
+
+cambiaLista([2,12,5,31,7], 5, 7)

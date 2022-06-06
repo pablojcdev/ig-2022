@@ -289,6 +289,7 @@ print(texto("Si hay problema serio, la nave vuelve a la base"))
 
 # Ej. 10:
 
+'''
 def esletra(x):
     res = False
     acentos = x in "áéíóúÁÉÍÓÚ"
@@ -324,8 +325,67 @@ def main():
     print(algoritmo(p, t))
 
 main()
+'''
 
 # print(algoritmo("casa", "casa bella"))
 # print(algoritmo("casa", "el lo saca"))
 # print(algoritmo("casa", "casada la bella"))
+
+
+
+t = "Si hay problema serio, la nave vuelve a la base"
+
+def acentos(x):
+    res = False
+    if x in "áéíóúÁÉÍÓÚ":
+        res = True
+    return res
+
+def algoritmo(t):
+    i = 0
+    largotexto = len(t)
+    res = "No se encontro la palabra"
+    while i < largotexto:
+        pal = ""
+        while i < largotexto and not ((t[i] >= "a" and t[i] <= "z") or (t[i] >= "A" and t[i] <= "Z") or acentos(t[i])):
+            i += 1
+        while i < largotexto and ((t[i] >= "a" and t[i] <= "z") or (t[i] >= "A" and t[i] <= "Z") or acentos(t[i])):
+            pal = pal + t[i]
+            i += 1
+        if pal != "":
+            if pal == "base":
+                res = "SI ESTA LA PALABRA BASE"
+    return res
+
+print(algoritmo("Si hay problema serio, la nave vuelve a la base"))
+print(algoritmo("Si hay problema serio, la nave vuelve a la casa"))
+
+
+# Recorrer un txt y buscar una palabra en especifico
+
+# for x in "asd":
+#     print(x)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
