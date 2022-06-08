@@ -213,6 +213,7 @@ main()
 
 # Ej. 5:
 
+'''
 from random import randint
 
 def enLista(x, ls):
@@ -240,4 +241,94 @@ def cambiaLista(ls, a, b):
         if ls[x] < a or ls[x] > b:
             ls[x] = randint(a, b)
 
-cambiaLista([2,12,5,31,7], 5, 7)
+def main():
+    ls = cargarLista()
+    a = int(input("Valor minimo"))
+    b = int(input("Valor maximo"))
+
+    cambiaLista(ls, a, b)
+    # cambiaLista([2,12,5,31,7], 5, 7)
+
+main()
+'''
+
+# Ej. 6:
+
+'''
+def enLista(x, ls):
+    res = False
+    if x in ls:
+        res = True
+    return res
+
+def cargarValores():
+    ls = []
+    x = int(input("Ingrese numero: "))
+    while x != 0:
+        if enLista(x, ls):
+            print("Ya esta en lista. ", end="")
+            x = int(input("Ingrese numero: "))
+        if x < 0:
+            print("Debe ser positivo. ", end="")
+            x = int(input("Ingrese numero: "))
+        if x > 0 and not enLista(x, ls):
+            ls.append(x)
+            x = int(input("Ingrese numero: "))
+    return ls
+
+def ordenar(ls):
+    for x in range(0, len(ls)-1):
+        for u in range(x+1, len(ls)):
+            if ls[x] > ls[u]:
+                aux = ls[x]
+                ls[x] = ls[u]
+                ls[u] = aux
+    return ls
+
+# print(ordenar([2,12,5,31,7]))
+
+def main():
+    ls = cargarValores()
+    print(ordenar(ls))
+
+main()
+'''
+
+# Ej. 7: 
+
+'''
+def insertOrd(ls, num):
+    for x in range(0, len(ls)-1):
+        if ls[x] < num and ls[x+1] > num:
+            ls.insert(x+1, num)
+    return ls
+
+# print(insertOrd([2,5,12,31,70], 6))
+
+def main():
+    ls = [2,5,12,31,70]
+    num = int(input("Numero: "))
+    print(insertOrd(ls, num))
+
+main()
+'''
+
+# Ej. 8: 
+
+'''
+def insertOrd(ls, num):
+    for x in range(0, len(ls)-1):
+        if ls[x] < num and ls[x+1] > num:
+            ls.insert(x+1, num)
+    return ls
+
+print(insertOrd([2,7], 6))
+'''
+
+def enLista(x, ls):
+    res = None
+    if x in ls:
+        res = "Esta"
+    return res
+
+print(enLista(5, [1,2,3,4]))
