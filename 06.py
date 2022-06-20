@@ -98,14 +98,12 @@ def ordenarLista(l):
 
 # PREGUNTAR porque la unica forma de hacer que
 # funcione es que retorne dos valores (a, b)
-''' 
-from random import randint
 
+from random import randint
 
 def cargarConjuntos():
     a = cargarLista()
     b = cargarLista()
-'''
 
 def union(a, b):
     for x in range(0, len(a)):
@@ -323,7 +321,7 @@ def insertOrd(ls, num):
     return ls
 
 print(insertOrd([2,7], 6))
-'''
+
 
 def enLista(x, ls):
     res = None
@@ -332,3 +330,226 @@ def enLista(x, ls):
     return res
 
 print(enLista(5, [1,2,3,4]))
+'''
+
+# Ej. 9: 
+
+'''
+def ordenarAluXDNI(ls):
+    for x in range(len(ls)-1):
+        for u in range(x+1, len(ls)):
+            if ls[x] > ls[u]:
+                aux = ls[x]
+                ls[x] = ls[u]
+                ls [u] = aux
+    return ls
+
+def cargarLstAlu():
+    ls = [[2698705, 'James Howlett', 18], [38698705, 'Jakie chan', 22], [35698705, 'Jean Grey', 22]]
+    return ls
+
+def main():
+    ls = ordenarAluXDNI(cargarLstAlu())
+    print(ls)
+
+main()
+'''
+
+# Ej 10:
+
+'''
+from random import randint
+
+def cargarListaAleat(can, a, b):
+    i = 0
+    ls = []
+    while i < can:
+        ls.append(randint(a, b))
+        i += 1
+    print(ls)
+
+def atributoTriple(ls):
+    con = 0
+    for x in range(len(ls)-2):
+        if ls[x] == ls[x+1] and ls[x+1] == ls[x+2]:
+            con += 1
+    if con != 0:
+        print(con)
+    else:
+        print("NADA")
+
+atributoTriple ([1,2,2,2,4,4,1])
+atributoTriple ([1,2,2,2,4,4,1,3,3,3])
+atributoTriple ([1,2,2,2,4,4,1,3,3,3,5,5,5])
+atributoTriple ([1,2,2,1,2,])
+'''
+
+# Ej 11:
+
+'''from random import randint
+
+def cargarListaAleat(can, a, b):
+    ls = []
+    for x in range(can):
+        ls.append(randint(a,b))
+
+    print(ls)
+
+# cargarListaAleat(5, 0 ,5)
+
+def ruleta(ls):
+    max = 0
+    for x in range(len(ls)-1):
+        c = 1
+        for u in range(x+1, len(ls)):
+            if ls[x] == ls[u]:
+                c+=1
+        if c != 1 and c > max:
+            max  = c
+            print(ls[x], c)
+
+ruleta([2,2,2,3,3,3])
+
+
+def ruleta(ls):
+#     lsaux = []
+#     for x in range(len(ls)-1):
+#         c = 1
+#         for u in range(x+1, len(ls)):
+#             if ls[x] == ls[u]:
+#                 c+=1
+# #               lsaux.append(ls[x])
+#         if c != 1:
+#             print(ls[x], c)
+    # x = 0
+    # u = 1
+    # while x < len(ls)-1:
+    #     # c = 1
+    #     x += 1
+    #     while u < len(ls)-1:
+    #         u += 1
+    #         print(ls[x], ls[u])
+
+    for x in range(len(ls)-1):
+        for u in range(x+1, len(ls)):
+            print(ls[x], ls[u])
+    print("-------------")
+    x = 0
+    while x < len(ls):
+        u = x+1
+        while u < len(ls)-1:
+            # u += 1
+            print(ls[x], ls[u])
+        x += 1
+
+ruleta([2,2,2,3])
+'''
+
+# Ej. 12:
+
+'''
+def operaciones(a, b):
+    k = None
+    if b != 0:
+        k = a/b
+    res = a+b, a-b, a*b, k
+    return res
+
+print(operaciones(54,0))
+'''
+
+# Ej. 13:
+
+'''
+def agregarDicEle():
+    dic = {3: 'Tres',5: 'Cinco', 1: 'Uno'}
+    n = int(input("Ingresar número a traducir o cero para salir: "))
+    # print(dic.get(n))
+    k = dic.keys()
+    while n != 0:
+        if n in k:
+            print(dic.get(n))
+        else:
+            print("ERROR: ", end="")
+        n = int(input("Ingresar número a traducir o cero para salir: "))
+
+agregarDicEle()
+'''
+
+# Ej. 14:
+
+'''
+def agregarDicEle2():
+    dic = {3:('Tres', 'Three', 'Drei'), 5:('Cinco', 'Five', 'Fünf'), 1:('Uno', 'One', 'ein')}
+    n = int(input("Ingresar número a traducir o cero para salir: "))
+    k = dic.keys()
+    while n != 0:
+        if n in k:
+            i = input("Ingresar idioma [sp|en|de]: ")
+            if i == "sp":
+                print((dic.get(n))[0])
+            elif i == "en":
+                print((dic.get(n))[1])
+            elif i == "de":
+                print((dic.get(n))[2])
+            else:
+                print("ERROR")
+        else:
+            print("ERROR: ", end="")
+        n = int(input("Ingresar número a traducir o cero para salir: "))
+
+# CORREGIR EL SEGUNDO LOOP PARA QUE CUANDO NO DE UN IDIOMA VALIDO VUELVA A PREGUNTAR
+
+agregarDicEle2()
+'''
+
+# Ej. 15:
+
+def agregarDicEle3():
+    dic = {
+        22698705: [['James', 'Howlett'], [2,9,7]],
+        38698705: [['Jakie', ' chan'], [2,9,7]],
+        35698705: [['Jean', 'Grey'], [2,9,7]]
+        }
+    return dic
+
+def imprimirDic():
+    print(agregarDicEle3())
+
+# imprimirDic()
+
+def ordenarLista(ls):
+    for x in range(len(ls)-1):
+        for u in range(x+1,len(ls)):
+            if ls[x] > ls[u]:
+                aux = ls[x]
+                ls[x] = ls[u]
+                ls[u] = aux
+
+def imprimirDicOrd(dic):
+    lk = list(dic.keys())
+    ordenarLista(lk)
+    i = 0
+    while i < len(lk):
+        k = lk[i]
+        print(k, dic[k])
+        i += 1
+
+def main():
+    agregarDicEle3()
+    imprimirDic()
+    imprimirDicOrd(agregarDicEle3())    
+
+main()
+
+# def recorrerDic4Ord(dic):
+#     lk = list(dic.keys())
+#     ordenarLista(lk)
+#     i = 0
+#     while i < len(lk):
+#         k = lk[i]
+#         print(k, dic[k][0])
+#         i += 1
+
+# def agregarDic(dic, clave, valor):
+#     dic[clave]=valor

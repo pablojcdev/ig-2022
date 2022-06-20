@@ -199,3 +199,18 @@ print( maxima("- nahuel - huapi") == "" )
 print( maxima("azauwuAai-nahuelhuapi +. doid +") == "nahuelhuapi" ) 
 print( maxima("zqui.hui_?raiz.&ravhvrwlil") == "ravhvrwlil" ) 
 print( maxima("TaAiUY A TaauAiUY < uIY wwowwwiww") == "wwowwwiww" ) 
+
+# EJ 2 DEL PARCIAL
+
+'''def ruleta(ls):
+    max = 0
+    for x in range(len(ls)-1):
+        c = 1
+        for u in range(x+1, len(ls)):
+            if ls[x] == ls[u]:
+                c+=1
+        if c != 1 and c > max:
+            max  = c
+            print(ls[x], c)
+
+ruleta([2,2,2,3,3,3])'''
