@@ -224,6 +224,7 @@ frecuenciaPalabra("07-3, 4, 5.txt")
 
 # Posible
 
+'''
 def esletra(x):
     res = False
     if (x<="z" and x>="a") or (x<="Z" and x>="A") or x in "áéíóúÁÉÍÓÚñÑ":
@@ -253,10 +254,55 @@ def cabecera(narch, cant, pmin, pmax):
                 print(pal)
 
 cabecera("07-3, 4, 5.txt", 3, 4, 9)
+'''
 
 # Ej. 5:
 
 # Utiliza el no repetir palabras del EJ 11
+
+def esletra(x):
+    res = False
+    if (x<="z" and x>="a") or (x<="Z" and x>="A") or x in "áéíóúÁÉÍÓÚñÑ":
+        res = True
+    return res
+
+def cabecera2(narch, cant, pmin, pmax):
+
+    c = 0
+    d = {}
+    arch = open(narch, "r")
+    for linea in arch:
+        linea = linea[:-1]
+
+        i = 0
+        ll = len(linea)
+        while i < ll and c < cant:
+            while i < ll and not esletra(linea[i]):
+                i += 1
+            pal = ""
+            while i < ll and esletra(linea[i]):
+                pal += linea[i]
+                i += 1
+            
+            lpal = len(pal)
+            if pal != "" and lpal <= pmax and lpal >= pmin and pal not in d.keys():
+                pal = pal + "\n"
+                d[pal] = 1
+                c += 1
+    arch.close()
+
+    arch = open("07-5-resultado.csv", "w")
+    for x in d.keys():
+        arch.write(x)
+    arch.close()
+
+    arch = open("07-5-resultado.csv", "r")
+    for linea in arch:
+        linea = linea[:-1]
+        print(linea)
+    arch.close()
+
+cabecera2("07-3, 4, 5.txt", 3, 4, 9)
 
 # Ej. 6:
 
