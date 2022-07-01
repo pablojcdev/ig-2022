@@ -91,6 +91,7 @@ open w
 	reescribir el archivo con todo lo que hay en la lista que stackeaba
 '''
 
+'''
 def promedio(ls):
     s = 0
     c = 0
@@ -123,6 +124,7 @@ def agegarMedia(narch):
     arch.close()
 
 agegarMedia("07-2.txt")
+'''
 
 # Ej. 3:
 
@@ -143,6 +145,53 @@ close
 
 despues print frecuencias.csv
 '''
+
+def esletra(x):
+    res = False
+    if (x>="a" and x<="z") or (x>="A" and x<="Z") or (x in "áéíóúÁÉÍÓÚñÑ/"):
+        res = True
+    return res
+
+def espalabra(txt):
+    i = 0
+    lt = len(txt)
+    c = 0
+    while i < lt:
+        while i < lt and not esletra(txt[i]):
+            i += 1
+        pal = ""
+        while i < lt and esletra(txt[i]):
+            pal += txt[i]
+            i += 1
+        if pal != "":
+            c += 1
+            print(pal)
+    print(c)
+
+# espalabra("Reservados todos los derechos. El contenido de esta obra está protegido por la Ley, que establece penas de prisión y multas, además de las correspondientes indemnizaciones por daños y perjuicios, para quienes reprodujeren, plagiaren, distribuyeren o comunicaren públicamente, en todo o en parte, una obra literaria, artística o científica, o su transformación, interpretación o ejecución artística fijada en cualquier tipo de soporte o comunicada a través de cualquier medio, sin la preceptiva autorización.")
+# 73
+
+def frecuenciaPalabra(narch):
+    arch = open(narch, "r")
+    for linea in arch:
+        linea = linea[:-1]
+
+        i = 0
+        lt = len(linea)
+        c = 0
+        while i < lt:
+            while i < lt and not esletra(linea[i]):
+                i += 1
+            pal = ""
+            while i < lt and esletra(linea[i]):
+                pal += linea[i]
+                i += 1
+            if pal != "":
+                c += 1
+                print(pal)
+        print(c)
+
+frecuenciaPalabra("07-3.txt")
 
 # Ej. 4:
 
