@@ -152,46 +152,77 @@ def esletra(x):
         res = True
     return res
 
-def espalabra(txt):
-    i = 0
-    lt = len(txt)
-    c = 0
-    while i < lt:
-        while i < lt and not esletra(txt[i]):
-            i += 1
-        pal = ""
-        while i < lt and esletra(txt[i]):
-            pal += txt[i]
-            i += 1
-        if pal != "":
-            c += 1
-            print(pal)
-    print(c)
-
-# espalabra("Reservados todos los derechos. El contenido de esta obra está protegido por la Ley, que establece penas de prisión y multas, además de las correspondientes indemnizaciones por daños y perjuicios, para quienes reprodujeren, plagiaren, distribuyeren o comunicaren públicamente, en todo o en parte, una obra literaria, artística o científica, o su transformación, interpretación o ejecución artística fijada en cualquier tipo de soporte o comunicada a través de cualquier medio, sin la preceptiva autorización.")
-# 73
+# espalabra("no se porque pienso que escribir de esta manera probara que mi capacidad para escribir mucho mas rapido y sin acentos sea mi unica forma de escribir mas rapido en esta pagina pero aun asi tengo que seguir comprobando esto y hago este texto para comprobar de nuevo mis habilidades y mi velocidad asi que solo estoy poniendo palabras o frases aleatorias para llenar suficientes palabras o lineas para darme cuenta mi velocidad al escribir este texto y que asi de alguna manera ponga una barra y tratar de superarla haciendo el mismo test varias veces hasta que pueda escribirlo todo aunque no se si llegara el dia en que pueda escribir todo esto en menos de un minuto")
+# 119
 
 def frecuenciaPalabra(narch):
     arch = open(narch, "r")
+    d = {}
     for linea in arch:
-        linea = linea[:-1]
+        if (linea[-1]) == "\n":
+            linea = linea[:-1]
+        #print(linea)
 
         i = 0
         lt = len(linea)
-        c = 0
         while i < lt:
             while i < lt and not esletra(linea[i]):
                 i += 1
             pal = ""
+            v = 0
             while i < lt and esletra(linea[i]):
                 pal += linea[i]
                 i += 1
-            if pal != "":
-                c += 1
-                print(pal)
-        print(c)
+            if pal != "" and pal not in d.keys():
+                d[pal] = 1
+            elif pal != "" and pal in d.keys():
+                v = d[pal]
+                d[pal] = v + 1
+                #print(pal)
+    #print(d)
+    arch.close()
+
+    ls = []
+    k = d.keys()
+    #print(k) 
+    for x in k:
+        cont = x + ", " + str(d[x]) + "\n"
+        #ls.append([x, str(d[x])])
+        ls.append(cont)
+    print(ls)
+
+    arch = open("07-3-frecuencias.csv", "w")
+    for x in ls:
+        arch.write(x)
+    arch.close
+
+
+
+
+
+
+    # ls2 = []
+    # for x in ls:
+    #     cont = x[0] + ", " + x[1] + "\n"
+    #     ls2.append(cont)
 
 frecuenciaPalabra("07-3.txt")
+
+# def espalabra(txt):
+#     i = 0
+#     lt = len(txt)
+#     c = 0
+#     while i < lt:
+#         while i < lt and not esletra(txt[i]):
+#             i += 1
+#         pal = ""
+#         while i < lt and esletra(txt[i]):
+#             pal += txt[i]
+#             i += 1
+#         if pal != "":
+#             c += 1
+#             print(pal)
+#     print(c)
 
 # Ej. 4:
 
