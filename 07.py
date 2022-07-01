@@ -201,7 +201,7 @@ def frecuenciaPalabra(narch):
     #     cont = x[0] + ", " + x[1] + "\n"
     #     ls2.append(cont)
 
-frecuenciaPalabra("07-3.txt")
+frecuenciaPalabra("07-3, 4, 5.txt")
 
 # def espalabra(txt):
 #     i = 0
@@ -223,6 +223,36 @@ frecuenciaPalabra("07-3.txt")
 # Ej. 4:
 
 # Posible
+
+def esletra(x):
+    res = False
+    if (x<="z" and x>="a") or (x<="Z" and x>="A") or x in "áéíóúÁÉÍÓÚñÑ":
+        res = True
+    return res
+
+def cabecera(narch, cant, pmin, pmax):
+
+    c = 0
+    arch = open(narch, "r")
+    for linea in arch:
+        linea = linea[:-1]
+
+        i = 0
+        lt = len(linea)
+        while i < lt and c < cant:
+            while i < lt and not esletra(linea[i]):
+                i += 1
+            pal = ""
+            while i < lt and esletra(linea[i]):
+                pal += linea[i]
+                i += 1
+
+            lpal = len(pal)
+            if pal != "" and lpal >= pmin and lpal <= pmax:
+                c += 1
+                print(pal)
+
+cabecera("07-3, 4, 5.txt", 3, 4, 9)
 
 # Ej. 5:
 
