@@ -146,7 +146,7 @@ close
 despues print frecuencias.csv
 '''
 
-def esletra(x):
+'''def esletra(x):
     res = False
     if (x>="a" and x<="z") or (x>="A" and x<="Z") or (x in "áéíóúÁÉÍÓÚñÑ/"):
         res = True
@@ -196,11 +196,6 @@ def frecuenciaPalabra(narch):
         arch.write(x)
     arch.close
 
-
-
-
-
-
     # ls2 = []
     # for x in ls:
     #     cont = x[0] + ", " + x[1] + "\n"
@@ -223,6 +218,7 @@ frecuenciaPalabra("07-3.txt")
 #             c += 1
 #             print(pal)
 #     print(c)
+'''
 
 # Ej. 4:
 
