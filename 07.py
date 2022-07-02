@@ -381,6 +381,17 @@ def agregar():
 
 #agregar()
 
+'''
+
+Tengo todas las keys por DNI
+Pide el input del DNI
+Si existe, buscar en ls2[x][2] == DNI
+hacer un remove() a esa posicion de la lista
+reescribir la lista de lista cada los 3 valores agregando el \n al final 
+reescribir el archivo usando la nueva lista
+
+'''
+
 def eliminar():
     arch = open("07-7-persona.csv", "r")
 
@@ -425,18 +436,10 @@ def eliminar():
     for x in ls3:
         arch.write(x)
     arch.close()
+
 eliminar()
 
-'''
 
-Tengo todas las keys por DNI
-Pide el input del DNI
-Si existe, buscar en ls2[x][2] == DNI
-hacer un remove() a esa posicion de la lista
-reescribir la lista de lista cada los 3 valores agregando el \n al final 
-reescribir el archivo usando la nueva lista
-
-'''
 
 # Ej. 8: menu
 
