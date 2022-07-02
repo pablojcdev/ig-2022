@@ -320,6 +320,7 @@ print(k[0])
 lo que se tiene que hacer es un randint para buscar sacar una key aleatoria desde la posicion aleatoria en la lista (randint(0,len(dic.keys())))
 '''
 
+'''
 from random import randint
 
 def generadora(ori, dest, cant):
@@ -345,5 +346,97 @@ def generadora(ori, dest, cant):
         i += 1
 
 generadora("07-6-origen.txt", "07-6-destino.txt", 3)
+'''
 
-# Ej. 7 y 8 menu
+# Ej. 7: 
+
+from numpy import append
+
+
+def agregar():
+    arch = open("07-7-persona.csv", "r")
+
+    d = {}
+    for linea in arch:
+        if linea[-1] == "\n":
+            linea = linea[:-1]
+        #print(linea)
+        aux = linea
+        ls = aux.split(",")
+        #print(ls[2], end="")
+        d[ls[2]] = [ls[0], ls[1]]
+    arch.close()
+
+    dni = input("DNI: ")
+    while dni in d.keys():
+        print("ERROR, este campo no puede estar repetido")
+        dni = input("DNI: ")
+    nombre = input("NOMBRE: ")
+    apellido = input("APELLIDO: ")
+
+    arch = open("07-7-persona.csv", "a")
+    cont = nombre + "," + apellido + "," + dni + "\n"
+    arch.write(cont)
+    arch.close()
+
+#agregar()
+
+def eliminar():
+    arch = open("07-7-persona.csv", "r")
+
+    d = {}
+    ls2 = []
+    for linea in arch:
+        # aux2 = linea
+        # ls2.append(aux2)
+
+        if linea[-1] == "\n":
+            linea = linea[:-1]
+        #print(linea)
+        aux = linea
+        ls = aux.split(",")
+        ls2.append(ls)
+        #print(ls[2], end="")
+        d[ls[2]] = [ls[0], ls[1]]
+    arch.close()
+
+    #print(ls2)
+
+    # dni = input("DNI: ")
+    # while dni not in d.keys():
+    #     print("ERROR, no se encontró tal DNI")
+    #     dni = input("DNI: ")
+    dni = "89236547"
+
+    for x in ls2:
+        if x[2] == dni:
+            ls2.remove(x)
+
+    #print(ls2)
+
+    ls3 = []
+    for x in ls2:
+        cont = x[0] + "," + x[1] + "," + x[2] + "\n"
+        ls3.append(cont)
+    
+    #print(ls3)
+
+    arch = open("07-7-persona.csv", "w")
+    for x in ls3:
+        arch.write(x)
+    arch.close()
+eliminar()
+
+'''
+
+Tengo todas las keys por DNI
+Pide el input del DNI
+Si existe, buscar en ls2[x][2] == DNI
+hacer un remove() a esa posicion de la lista
+reescribir la lista de lista cada los 3 valores agregando el \n al final 
+reescribir el archivo usando la nueva lista
+
+'''
+
+# Ej. 8: menu
+
