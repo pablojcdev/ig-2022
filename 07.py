@@ -260,6 +260,7 @@ cabecera("07-3, 4, 5.txt", 3, 4, 9)
 
 # Utiliza el no repetir palabras del EJ 11
 
+'''
 def esletra(x):
     res = False
     if (x<="z" and x>="a") or (x<="Z" and x>="A") or x in "áéíóúÁÉÍÓÚñÑ":
@@ -303,6 +304,7 @@ def cabecera2(narch, cant, pmin, pmax):
     arch.close()
 
 cabecera2("07-3, 4, 5.txt", 3, 4, 9)
+'''
 
 # Ej. 6:
 
@@ -317,5 +319,31 @@ print(k[0])
 
 lo que se tiene que hacer es un randint para buscar sacar una key aleatoria desde la posicion aleatoria en la lista (randint(0,len(dic.keys())))
 '''
+
+from random import randint
+
+def generadora(ori, dest, cant):
+    arch = open(ori, "r")
+
+    d = {}
+    for linea in arch:
+        if linea[:-1] == "\n":
+            linea = linea[:-1]
+        if linea not in d.keys():
+            d[linea] = 1
+    arch.close()
+
+    ls = []
+    for x in d.keys():
+        ls.append(x)
+    
+    #print(ls)
+    arch = open(dest, "w")
+    i = 0
+    while i < len(ls) and i < cant:
+        arch.write(ls[randint(0, len(ls))])
+        i += 1
+
+generadora("07-6-origen.txt", "07-6-destino.txt", 3)
 
 # Ej. 7 y 8 menu
