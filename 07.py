@@ -413,11 +413,11 @@ def eliminar():
 
     #print(ls2)
 
-    # dni = input("DNI: ")
-    # while dni not in d.keys():
-    #     print("ERROR, no se encontró tal DNI")
-    #     dni = input("DNI: ")
-    dni = "89236547"
+    dni = input("DNI: ")
+    while dni not in d.keys():
+        print("ERROR, no se encontró tal DNI")
+        dni = input("DNI: ")
+    #dni = "89236547"
 
     for x in ls2:
         if x[2] == dni:
@@ -437,9 +437,151 @@ def eliminar():
         arch.write(x)
     arch.close()
 
-eliminar()
+# eliminar()
+
+# El user puede ingresar tanto DNI como apellido
+#     Si es DNI
+#         Tiene 8 caracteres y esta compuesto unicamente por numeros
+#             Para saber si esta compuesto unicamente por nuemros va a ser un "x in "1234567890"
+#     Apelliodo (else)
+
+# Recorrer el registro
+#     ls = []
+#     open arch en "r"
+#     for linea in arch
+#         linea[-1] == "\n"
+#             remoueve el n
+#         aux = linea
+#         ls = linea.split(",")
+#         comparar la ls
+#             Hasta que x[2] o x[0] sea igual a INPUT
+#             print(aux)
+
+def buscar():
+
+    entrada = input("Ingrese DNI o Apellido: ")
+    #input = "89236547"
+
+    arch = open("07-7-persona.csv", "r")
+    for linea in arch:
+        if linea[-1] == "\n":
+            linea = linea[:-1]
+        aux = linea
+        ls = linea.split(",")
+        if ls[1] == entrada or ls[2] == entrada:
+            print(aux)
+    arch.close()
+
+# buscar()
+
+# ORDENAR
+
+'''
+ordenar es una reescritura del archivo en base a tal campo
+
+input de por que campo lo queres ordenar
+    1 = 0
+    2 = 1
+    3 = 2
+
+ls = []
+ls2 = []
+arch open en r
+    if linea...
+    ls = linea.split
+    ls2.append(ls)
+arch.close()
+
+if input == 1 # (0)
+    for x in range(len(ls2)-1)
+        for u in range(x+1, len(ls2)):
+            if ls[x][1] > ls[u][1]
+                aux = ls[x][1]
+                ls[x][1] = ls[u][1]
+                ls[u][1] = aux
+'''
+def ordenar():
+    entrada = int(input("Ingrese un numero para ordenarlo segun ese campo. Las opciones serán 1 Nombre; 2 Apellido; 3 DNI: "))
+    nums = [1,2,3]
+    while entrada not in nums:
+        entrada = int(input("ERROR. Las opciones son 1 Nombre; 2 Apellido; 3 DNI: "))
+
+    #entrada = 3
+
+    arch = open("07-7-persona.csv", "r")
+    ls = []
+    ls2 = []
+    for linea in arch:
+        if linea[-1] == "\n":
+            linea = linea[:-1]
+        ls = linea.split(",")
+        ls2.append(ls)
+    arch.close()
+
+    print(ls2)
+
+    if entrada == 1:
+        entrada = 0
+    elif entrada == 2:
+        entrada = 1
+    elif entrada == 3:
+        entrada = 2
+
+    for x in range(len(ls2)-1):
+        for u in range(x+1, len(ls2)):
+            if ls2[x][entrada] > ls2[u][entrada]:
+                aux = ls2[x]
+                ls2[x] = ls2[u]
+                ls2[u] = aux
+
+    print(ls2)
+
+    ls3 = []
+    for x in ls2:
+        cont = x[0] + "," + x[1] + "," + x[2] + "\n"
+        ls3.append(cont)
+    print(ls3)
+
+    arch = open("07-7-persona.csv", "w")
+    for x in ls3:
+        arch.write(x)
+    arch.close()
+
+# ordenar()
+
+def mostrar():
+    arch = open("07-7-persona.csv", "r")
+    for linea in arch:
+        if linea[-1] == "\n":
+            linea = linea[:-1]
+        print(linea)
+    arch.close()
+
+#mostrar()
+
+def selector(x):
+    if x == 1:
+        agregar()
+    elif x == 2:
+        eliminar()
+    elif x == 3:
+        buscar()
+    elif x == 4:
+        ordenar()
+    elif x == 5:
+        mostrar()
 
 
+def main():
+    x = int(input("1. AGREGAR REGISTRO\n2. ELIMINAR REGISTRO\n3. BUSCAR REGISTRO\n4. ORDENAR ARCHIVO POR\n5. MOSTRAR ARCHIVO\n6. SALIR\nIngrese el valor de la opción: "))
+    nums = [1,2,3,4,5,6]
+    while x not in nums:
+        x = int(input("ERROR, ingrese una de las siguientes opciones:\n1. AGREGAR REGISTRO\n2. ELIMINAR REGISTRO\n3. BUSCAR REGISTRO\n4. ORDENAR ARCHIVO POR\n5. MOSTRAR ARCHIVO\n6. SALIR\nIngrese el valor de la opción: "))
+    
+    while x != 6:
+        selector(x)
+        x = int(input("1. AGREGAR REGISTRO\n2. ELIMINAR REGISTRO\n3. BUSCAR REGISTRO\n4. ORDENAR ARCHIVO POR\n5. MOSTRAR ARCHIVO\n6. SALIR\nIngrese el valor de la opción: "))
+main()
 
 # Ej. 8: menu
 
