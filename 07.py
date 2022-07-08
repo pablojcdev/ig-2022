@@ -350,9 +350,7 @@ generadora("07-6-origen.txt", "07-6-destino.txt", 3)
 
 # Ej. 7: 
 
-from numpy import append
-
-
+'''
 def agregar():
     arch = open("07-7-persona.csv", "r")
 
@@ -381,16 +379,14 @@ def agregar():
 
 #agregar()
 
-'''
 
-Tengo todas las keys por DNI
-Pide el input del DNI
-Si existe, buscar en ls2[x][2] == DNI
-hacer un remove() a esa posicion de la lista
-reescribir la lista de lista cada los 3 valores agregando el \n al final 
-reescribir el archivo usando la nueva lista
+# Tengo todas las keys por DNI
+# Pide el input del DNI
+# Si existe, buscar en ls2[x][2] == DNI
+# hacer un remove() a esa posicion de la lista
+# reescribir la lista de lista cada los 3 valores agregando el \n al final 
+# reescribir el archivo usando la nueva lista
 
-'''
 
 def eliminar():
     arch = open("07-7-persona.csv", "r")
@@ -476,30 +472,30 @@ def buscar():
 
 # ORDENAR
 
-'''
-ordenar es una reescritura del archivo en base a tal campo
+# ordenar es una reescritura del archivo en base a tal campo
 
-input de por que campo lo queres ordenar
-    1 = 0
-    2 = 1
-    3 = 2
+# input de por que campo lo queres ordenar
+#     1 = 0
+#     2 = 1
+#     3 = 2
 
-ls = []
-ls2 = []
-arch open en r
-    if linea...
-    ls = linea.split
-    ls2.append(ls)
-arch.close()
+# ls = []
+# ls2 = []
+# arch open en r
+#     if linea...
+#     ls = linea.split
+#     ls2.append(ls)
+# arch.close()
 
-if input == 1 # (0)
-    for x in range(len(ls2)-1)
-        for u in range(x+1, len(ls2)):
-            if ls[x][1] > ls[u][1]
-                aux = ls[x][1]
-                ls[x][1] = ls[u][1]
-                ls[u][1] = aux
-'''
+# if input == 1 # (0)
+#     for x in range(len(ls2)-1)
+#         for u in range(x+1, len(ls2)):
+#             if ls[x][1] > ls[u][1]
+#                 aux = ls[x][1]
+#                 ls[x][1] = ls[u][1]
+#                 ls[u][1] = aux
+
+
 def ordenar():
     entrada = int(input("Ingrese un numero para ordenarlo segun ese campo. Las opciones serán 1 Nombre; 2 Apellido; 3 DNI: "))
     nums = [1,2,3]
@@ -583,5 +579,108 @@ def main():
         x = int(input("1. AGREGAR REGISTRO\n2. ELIMINAR REGISTRO\n3. BUSCAR REGISTRO\n4. ORDENAR ARCHIVO POR\n5. MOSTRAR ARCHIVO\n6. SALIR\nIngrese el valor de la opción: "))
 main()
 
+# 233 LINEAS DE CODIGO PARA EL EJ 7 MDS
+
+'''
+
 # Ej. 8: menu
 
+# provincias.txt
+# (archivo CSV)
+
+#   ID_provincia(entero) | nombre(cadena de caracteres) | ID_pais
+
+# localidades.txt
+# (archivo CSV)
+
+#   ID_localidad (entero) | nombre (cadena de caracteres) | ID_provincia (entero) | superficie (entero) | poblacion (entero)
+
+# paises.txt
+# (archivo CSV)
+
+#   ID_pais (entero) | nombre (cadena de caracteres) | ID_idioma (entero)
+
+def poblacion(id):
+    ls = []
+    arch = open("07-8-provincias.txt", "r")
+    for linea in arch:
+        if linea[-1] == "\n":
+            linea = linea[:-1]
+        ls = linea.split(",")
+        if int(ls[0]) == id:
+            nom = ls[1]
+    arch.close()
+
+    pobl = 0
+    arch = open("07-8-localidades.txt", "r")
+    for linea in arch:
+        if linea[-1] == "\n":
+            linea = linea[:-1]
+        ls = linea.split(",")
+        if int(ls[2]) == id:
+            pobl += int(ls[4])
+    arch.close()
+
+    print(nom, pobl)
+
+#poblacion(1)
+
+'''
+max = 0
+d = {}
+Recorrer el localidades.txt
+    hacer linea...
+    ahcer split
+    if max == 0:
+        max = int(ls[4])
+    elif max != 0 and int(ls[4]) >= max:
+        max = int(ls[4])
+    d[max] = ls[1]
+'''
+
+def localidadMaxima():
+    ls = []
+    ls2 = []
+    max = 0
+
+    arch = open("07-8-localidades.txt", "r")
+    for linea in arch:
+        if linea[-1] == "\n":
+            linea = linea[:-1]
+        ls = linea.split(",")
+        if max == 0:
+            max = int(ls[4])
+            ls2 = [str(max), ls[1], ls[2]]
+        elif max != 0 and int(ls[4]) >= max:
+            max = int(ls[4])
+            ls2 = [str(max), ls[1], ls[2]]
+    arch.close()
+    # print(ls2)
+
+    arch = open("07-8-provincias.txt", "r")
+    for linea in arch:
+        if linea[-1] == "\n":
+            linea = linea[:-1]
+        ls = linea.split(",")
+        
+        if ls[0] == ls2[2]:
+            ls2.append(ls[1])
+            ls2.append(ls[2])
+    arch.close()
+    # print(ls2)
+
+    arch = open("07-8-paises.txt", "r")
+    for linea in arch:
+        if linea[-1] == "\n":
+            linea = linea[:-1]
+        ls = linea.split(",")
+
+        if ls[0] == ls2[4]:
+            ls2.append(ls[1])
+        
+    # print(ls2)
+
+    #print("Poblacion: " + ls2[0] + "\nLocalidad: " + ls2[1] + "\nProvincia: " + ls2[3] + "\nPais: " + ls2[5])
+    print("{:12}{:>10}\n{:12}{:>10}\n{:12}{:>10}\n{:12}{:>10}".format("Poblacion:", ls2[0], "Localidad:", ls2[1], "Provincia:", ls2[3], "Pais:", ls2[5]))
+
+localidadMaxima()
