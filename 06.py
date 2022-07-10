@@ -386,30 +386,79 @@ atributoTriple ([1,2,2,1,2,])
 
 # Ej 11:
 
-'''from random import randint
+# cargarListaAleat(5, 0 ,5)
 
-def cargarListaAleat(can, a, b):
+# def ruleta(ls):
+#     max = 0
+#     d = {}
+#     for x in range(len(ls)-1):
+#         c = 1
+#         for u in range(x+1, len(ls)):
+#             if ls[x] == ls[u]:
+#                 c+=1
+#         d[ls[x]] = c
+#     print(d)
+
+        # if c != 1 and c > max:
+        #     max = c
+        #     print(ls[x], c)
+            #cont = str(ls[x]) + " " + str(max) # Esto te guardaria solo el que mas se repetio, nosotros queremos 
+            # que nos aparezcan todos, 
+
+    #print(cont)
+
+#ruleta([2,2,2,3,3,3,3,2,3])
+
+from random import randint
+
+def ruleta(can, a, b):
     ls = []
     for x in range(can):
         ls.append(randint(a,b))
+    return ls
 
-    print(ls)
+def porcentual(ls):
+    d = {}
+    for x in ls:
+        if x not in d.keys():
+            d[x] = 1
+        elif x in d.keys():
+            d[x] += 1
+    #print(d)
+    
+    ls2 = []
+    for x in d.keys():
+        ls2.append([x, d[x]])
+    
+    #print(ls2)
+    
+    for x in range(len(ls2)-1):
+        for u in range(x+1,len(ls2)):
+            if ls2[x][0] > ls2[u][0]:
+                aux = ls2[x]
+                ls2[x] = ls2[u]
+                ls2[u] = aux
 
-# cargarListaAleat(5, 0 ,5)
+    #print(ls2)
 
-def ruleta(ls):
-    max = 0
-    for x in range(len(ls)-1):
-        c = 1
-        for u in range(x+1, len(ls)):
-            if ls[x] == ls[u]:
-                c+=1
-        if c != 1 and c > max:
-            max  = c
-            print(ls[x], c)
+    for x in ls2:
+        por = (x[1]*100)//len(ls)
+        x.append(por)
 
-ruleta([2,2,2,3,3,3])
+    #print(ls2)
 
+    for x in ls2:
+        print("El número " + str(x[0]) + " salió " + str(x[1]) + " vez (" + str(x[2]) + "%).")
+
+
+def main():
+    #ls = ruleta(can, a, b)
+    porcentual([14,20,20,8,14,30,20,23,20,30])
+
+main()
+
+# Lo que restaria hacer seria dividir "max" entre "len(ls)", y eso x100, asi obtendras el porcentaje. Despues solo es darle
+# formato bonito para que quede como "El número 8 salió 1 vez (10%)."
 
 def ruleta(ls):
 #     lsaux = []
@@ -442,8 +491,8 @@ def ruleta(ls):
             print(ls[x], ls[u])
         x += 1
 
-ruleta([2,2,2,3])
-'''
+#ruleta([2,2,2,3])
+
 
 # Ej. 12:
 
@@ -505,7 +554,7 @@ agregarDicEle2()
 
 # Ej. 15:
 
-def agregarDicEle3():
+'''def agregarDicEle3():
     dic = {
         22698705: [['James', 'Howlett'], [2,9,7]],
         38698705: [['Jakie', ' chan'], [2,9,7]],
@@ -552,4 +601,4 @@ main()
 #         i += 1
 
 # def agregarDic(dic, clave, valor):
-#     dic[clave]=valor
+#     dic[clave]=valor'''
