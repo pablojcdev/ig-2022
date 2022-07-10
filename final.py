@@ -83,6 +83,7 @@ lstParque = ['1,Rosario, 8\n', '6,San Martin, 4\n', '8,Lavalle, 10\n', '3,Espera
 '''
 
 
+'''
 lstEnergia = ['101205, 1, 24.2\n', '110607, 8, 54.4\n', '120318, 3, 18.1\n', '090501, 9, 88.4\n', '101209, 1, 26.8\n', '101217, 3, 22.4\n', '190101, 8, 44.0\n']
 
 def separador(ls):
@@ -249,4 +250,202 @@ def main():
     #energiaTotal(3, lstEnergia, lstParque)
 
 main()
+'''
 
+###################### UCA.IG.21.FINAL.FEB.A.PRACTICA ######################
+
+'''
+alumnos.csv : ID_alumno [int] | Nombre_Apellido [string]
+
+152002,Juan Gonzalez
+152001,Ana Martinez
+151988,Ricardo Bochini
+180372,Vicente Pernia
+
+materias.csv : ID_materia [int] | Nombre [string]
+
+132,Informática Gral
+127,Álgebra y Geometría
+137,Física I
+
+cursadas.csv . ID_materia [int] | ID_alumno [int] | nota_cierre [float]
+
+137,152001,4.0
+127,151988,6.0
+137,151988,7.5
+132,152002,2.0
+132,151988,6.0
+127,152001,2.0
+127,180372,10.0
+'''
+
+def aprobadas(lstAlumnos ,lstMaterias ,lstCursadas,nom):
+    ls2 = []
+    for linea in lstAlumnos:
+        if linea[-1] == "\n":
+            linea = linea[:-1]
+        ls = linea.split(",")
+        if ls[1] == nom:
+            ls2.append(ls[0])
+            ls2.append(ls[1])
+
+    #print(ls2)
+
+    ls3 = []
+    for linea in lstMaterias:
+        if linea[-1] == "\n":
+            linea = linea[:-1]
+        ls = linea.split(",")
+        ls3.append(ls)
+
+    # print(ls3)
+    # print(ls2)
+
+    d = {}
+    mat = ""
+    for linea in lstCursadas:
+        if linea[-1] == "\n":
+            linea = linea[:-1]
+        ls = linea.split(",")
+        if ls[1] == ls2[0] and float(ls[2]) >= 4:
+            d[ls[0]] = ls[2]
+    
+    #print(d)
+
+    ls4 = []
+    for x in ls3:
+        if x[0] in d.keys():
+            mat = d[x[0]]
+        ls4.append((x[1], float(mat)))
+    
+    for x in range(len(ls4)-1):
+        for u in range(x+1, len(ls4)):
+            # print(ls4[x][0][0])
+            # print(ls4[u][0][0])
+            if ls4[x][0][0] > ls4[u][0][0]:
+                aux = ls4[x]
+                ls4[x] = ls4[u]
+                ls4[u] = aux
+                #print("asd")
+
+    #print(ls4)
+    # if 'Informática Gral' < 'Física I':
+    #     print("asd")
+    # if 'Informática Gral' < 'Álgebra y Geometría':
+    #     print("asd1")
+
+    # Por lo que "Álgebra" tiene acento en la primera letra no toma como que se valor es menor
+    # por ende no lo ordena correctamente. Solucion: Sacar el acento, el profe no nos enseño, ya
+    # que siempre trabajamos con textos sin acentos asi que no lo hago y simplemente cambio la letra "Á"
+    # por una sin acento
+
+    return ls4
+
+# def main():
+#     print("Prueba para el EJ01")
+#     lstAlumnos = ['152002,Juan Gonzalez\n','152001,Ana Martinez\n','151988,Ricardo Bochini\n','180372,Vicente Pernia\n']
+#     lstMaterias = ['132,Informática Gral\n','127,Algebra y Geometría\n','137,Física I\n']
+#     lstCursadas = ['137,152001,4.0\n','127,151988,6.0\n','137,151988,7.5\n','132,152002,2.0\n','132,151988,6.0\n','127,152001,2.0\n','127,180372,10.0\n']
+#     print(aprobadas(lstAlumnos ,lstMaterias ,lstCursadas,'Ricardo Bochini' ))
+#     #aprobadas(lstAlumnos ,lstMaterias ,lstCursadas,'Ricardo Bochini' )
+
+# main()
+
+# EJ 02
+
+def segmentos(lstAlumnos ,lstMaterias ,lstCursadas):
+    #d2 = {"M":[], "R":[], "B":[], "E":[]}
+    #print(d2.keys())
+
+    # ls2 = []
+    # for linea in lstAlumnos:
+    #     if linea[-1] == "\n":
+    #         linea = linea[:-1]
+    #     ls = linea.split(",")
+    #     if ls[1] == nom:
+    #         ls2.append(ls[0])
+    #         ls2.append(ls[1])
+
+    #print(ls2)
+
+    # ls3 = []
+    # for linea in lstMaterias:
+    #     if linea[-1] == "\n":
+    #         linea = linea[:-1]
+    #     ls = linea.split(",")
+    #     ls3.append(ls)
+
+    # print(ls3)
+    # print(ls2)
+
+    d2 = {}
+    lsm = []
+    lsr = []
+    lsb = []
+    lse = []
+    for linea in lstCursadas:
+        if linea[-1] == "\n":
+            linea = linea[:-1]
+        ls = linea.split(",")
+        if float(ls[2]) < 4:
+            lsm.append([ls[0], ls[1]])
+        elif float(ls[2]) >= 4 and float(ls[2]) < 7:
+            lsr.append([ls[0], ls[1]])
+        elif float(ls[2]) >= 7 and float(ls[2]) < 8:
+            lsb.append([ls[0], ls[1]])
+        elif float(ls[2]) >= 8 and float(ls[2]) <= 10:
+            lse.append([ls[0], ls[1]])
+
+    #d2["M"] = ls2
+
+    for linea in lstMaterias:
+        if linea[-1] == "\n":
+            linea = linea[:-1]
+        ls = linea.split(",")
+        for x in lsm:
+            if x[0] == ls[0]:
+                x[0] = ls[1]
+        for x in lsr:
+            if x[0] == ls[0]:
+                x[0] = ls[1]
+        for x in lsb:
+            if x[0] == ls[0]:
+                x[0] = ls[1]
+        for x in lse:
+            if x[0] == ls[0]:
+                x[0] = ls[1]
+
+    for linea in lstAlumnos:
+        if linea[-1] == "\n":
+            linea = linea[:-1]
+        ls = linea.split(",")
+        for x in lsm:
+            if x[1] == ls[0]:
+                x[1] = ls[1]
+        for x in lsr:
+            if x[1] == ls[0]:
+                x[1] = ls[1]
+        for x in lsb:
+            if x[1] == ls[0]:
+                x[1] = ls[1]
+        for x in lse:
+            if x[1] == ls[0]:
+                x[1] = ls[1]
+
+    d2["M"] = lsm
+    d2["R"] = lsr
+    d2["B"] = lsb
+    d2["E"] = lse
+
+    return d2
+
+
+def main():
+    print("Prueba para el EJ02")
+    lstAlumnos = ['152002,Juan Gonzalez\n','152001,Ana Martinez\n','151988,Ricardo Bochini\n','180372,Vicente Pernia\n']
+    lstMaterias = ['132,Informática Gral\n','127,Algebra y Geometría\n','137,Física I\n']
+    lstCursadas = ['137,152001,4.0\n','127,151988,6.0\n','137,151988,7.5\n','132,152002,2.0\n','132,151988,6.0\n','127,152001,2.0\n','127,180372,10.0\n']
+    print(segmentos(lstAlumnos ,lstMaterias ,lstCursadas))
+    #segmentos(lstAlumnos ,lstMaterias ,lstCursadas)
+
+main()
