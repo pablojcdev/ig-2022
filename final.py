@@ -279,6 +279,7 @@ cursadas.csv . ID_materia [int] | ID_alumno [int] | nota_cierre [float]
 127,180372,10.0
 '''
 
+'''
 def aprobadas(lstAlumnos ,lstMaterias ,lstCursadas,nom):
     ls2 = []
     for linea in lstAlumnos:
@@ -449,3 +450,294 @@ def main():
     #segmentos(lstAlumnos ,lstMaterias ,lstCursadas)
 
 main()
+'''
+
+###################### UCA.IG.20.FINAL.DIC.A.TEORIA ######################
+
+'''
+def fun(nombres):
+    nombres.insert(1,'Charly')
+    nombres = nombres[:-1] # EL -1 EN LISTA REMUEVE EL ULTIMO ITEM
+    #return nombres
+def main():
+    names = ['Tom', 'Tommy', 'Tomas']
+    fun(names) # DE ACA SALE SIN EL TOMAS
+    print(names) # PERO ACA SE AGREGA EL TOMAS DE NUEVO???¡
+main()
+
+def main():
+    num= int('123456789')
+    b=10
+    e=3
+    print( ((num//(b**e)) % (b**e)) % (b**e) )
+main()
+
+def fun(lst, val):
+    largo=len(lst)
+    for i in range(0,largo):
+        if lst[i]==val:
+            lst.pop(i) # CON EL METODO POP SIEMPRE UN WHILE PORQUE SINO SE VA OUT OF INDEX
+def main():
+    lst = [1,2,3,4,4,3,2,1]
+    fun(lst,2)
+    print(lst)
+main()
+
+import random
+def cargarDi (lst):
+    di={}
+    for item in lst:
+        clave = random.randint(1,100)
+        while clave in di.keys() :
+            clave = random.randint(1,100)
+        di[clave]= item
+    return di
+def main():
+    lst=['Tom', 'Charly', 'Tommy', 'Tomas']
+    di = cargarDi(lst)
+    print(di)
+main()
+'''
+# UCA.IG.21.FINAL.FEB.A.TEORIA
+
+'''
+def fun(lst,val):
+    encontro=False
+    while i<len(lst) and not encontro:
+        if val<lst[i]:
+            encontro=True
+        else:
+            i+=1
+    lst.insert(i,val)
+def main():
+    lst = ['b', 'd', 's']
+    fun(lst,'c')
+    print(lst)
+main()
+
+def fun(lst, val):
+    i=0
+    largo=len(lst)
+    while i < largo:
+        if lst[i]==val:
+            lst.pop(i)
+        else:
+            i+=1
+def main():
+    lst = [2,4,2,6,2]
+    fun(lst,2)
+    print(lst)
+main()
+
+import random
+def main():
+    num= int('123456789')
+    b=10
+    e=0
+    e=random.randint(e,e)
+    print( ((num//(b**e)) % (b**e)) % (b**e) )
+main()
+main()
+
+def fun(lst,di):
+    di={}
+    i=len(lst)-1
+    for item in lst:
+        clave = lst[i]
+        di[clave]= item
+        i-=1
+def main():
+    di={}
+    lst=['a','b','c','d']
+    fun(lst,di)
+    print(di)
+main()
+
+def fun(a,b,c):
+    p = a and(b or c)
+    q = (a and b) or (a and c)
+    if p == q:
+        res = 10
+    else:
+        res = -10
+    return res
+def main():
+    res = fun(True,True,True) + fun(True,True,False)
+    print(res)
+main()
+'''
+
+###################### UCA.IG.20.FINAL.DIC.A.PRACTICA ######################
+
+'''
+def media_01(n,lstCiudad ,lstResiduos):
+    d = {}
+    # c = 0
+    for linea in lstResiduos:
+        if linea[-1] == "\n":
+            linea = linea[:-1]
+        ls = linea.split(",")
+        #print(ls)
+        if ls[1] not in d.keys():
+            d[ls[1]] = [int(ls[0]), 1]
+        elif ls[1] in d.keys():
+            c = d[ls[1]][1] + 1
+            v = d[ls[1]][0] + int(ls[0])
+            d[ls[1]] = [v, c]
+            # c+=1
+            # print(c)
+#   print(d)
+
+    for x in d.keys():
+        prom = d[x][0] / d[x][1]
+        prom = str(prom)
+        prom = prom[0:4]
+        d[x] = float(prom)
+
+    #print(d)
+    v = 0
+    s = 0
+    for x in d.keys():
+        v += d[x]
+        s += 1
+    
+    promg = v / s
+
+    #print(promg)
+
+    d2 = {}
+    for linea in lstCiudad:
+        if linea[-1] == "\n":
+            linea = linea[:-1]
+        ls = linea.split(",")
+        
+        for x in d.keys():
+            if ls[0] == x:
+                d2[ls[1]] = d[x]
+
+    ls2 = []
+    for x in d2:
+        ls2.append([x, d2[x]])
+
+    for x in range(len(ls2)-1):
+        for u in range(x+1,len(ls2)):
+            if ls2[x][1] < ls2[u][1]:
+                aux = ls2[x]
+                ls2[x] = ls2[u]
+                ls2[u] = aux
+
+    #print(ls2)
+
+    i = 0
+    ls3 = []
+    while i < n:
+        ls3.append(ls2[i])
+        i += 1
+    
+    #print(ls3)
+
+    r = promg, ls3
+    return r
+
+# def main():
+#     print("Prueba para el EJ01")
+#     lstCiudad = ['223,Parana\n', '114,Merlo\n', '218,Guaymallen\n', '132,C. Rivadavia\n', '341,Adolfo Alsina\n', '404,Jose C. Paz\n']
+#     lstResiduos = ['33,114,200518\n', '31,223,200519\n', '27,218,200319\n', '26,132,200616\n', '74,341,200319\n', '62,404,200606\n', '46,218,200709\n', '55,132,200630\n', '55,341,200612\n',
+#     '54,404,200701\n', '23,114,200315\n', '55,223,200519\n', '34,218,200319\n', '33,132,200425\n', '27,341,200422\n', '21,404,200501\n', '31,114,200503\n', '44,114,200513\n', '44,218,200519\n']
+#     print(media_01(3,lstCiudad ,lstResiduos ))
+#     #media_01(3,lstCiudad ,lstResiduos )
+
+# main()
+
+def media_02(lstResiduos):
+    d = {}
+    for linea in lstResiduos:
+        if linea[-1] == "\n":
+            linea = linea[:-1]
+        ls = linea.split(",")
+
+        #print(ls[2][2:4])
+        m = ls[2][2:4]
+        i = 0
+        while i < len(m):
+            while i < len(m) and m[i] == "0":
+                i += 1
+            pal = ""
+            while i < len(m) and m[i] != "0":
+                pal += m[i]
+                i += 1
+        1#print(pal)
+
+        if pal not in d.keys():
+            d[pal] = [int(ls[0]), 1]
+        elif pal in d.keys():
+            v = d[pal][0] + int(ls[0])
+            c = d[pal][1] + 1
+            d[pal] = [v, c]
+    
+    #print(d)
+
+    for x in d.keys():
+        prom = d[x][0] / d[x][1]
+        d[x] = prom
+
+    ls2 = list(d)
+    for x in range(len(ls2)-1):
+        for u in range(x+1,len(ls2)):
+            if ls2[x] > ls2[u]:
+                aux = ls2[x]
+                ls2[x] = ls2[u]
+                ls2[u] = aux
+    
+    d2 = {}
+
+    for x in ls2:
+        d2[int(x)] = d[x]
+
+    return d2
+
+def main():
+    print("Prueba para el EJ02")
+    lstResiduos = ['33,114,200518\n', '31,223,200519\n', '27,218,200319\n', '26,132,200616\n',
+    '74,341,200319\n', '62,404,200606\n', '46,218,200709\n', '55,132,200630\n', '55,341,200612\n',
+    '54,404,200701\n', '23,114,200315\n', '55,223,200519\n', '34,218,200319\n', '33,132,200425\n',
+    '27,341,200422\n', '21,404,200501\n', '31,114,200503\n', '44,114,200513\n', '44,218,200519\n']
+    print(media_02(lstResiduos ))
+
+main()
+'''
+
+###################### UCA.IG.21.FINAL.FEB.A.TEORIA ######################
+
+'''def fun(a,b,c):
+    p = a and(b or c)
+    q = (a and b) or (a and c)
+    if p == q:
+        res = 10
+    else:
+        res = -10
+    return res
+def main():
+    res = fun(True,True,True) + fun(True,True,False)
+    print(res)
+main()'''
+
+# Practica random
+
+b = 9
+
+for f in range(0,b):
+    for c in range(0,b):
+        if f<=c+(b//2) and f>=c-(b//2) and f+c<=b-1+(b//2) and f+c>=b-1-(b//2):
+            print(" *", end="")
+        else:
+            print("  ", end="")
+    print()
+
+for f in range(0,b):
+    for c in range(0,b):
+        if f<=c+(b//2) and f>=c-(b//2) and f+c>=b-1-(b//2) and f+c<=b-1+(b//2):   
+            print(" *", end="")
+        else:
+            print("  ", end="")
+    print()
