@@ -569,7 +569,7 @@ main()
 
 ###################### UCA.IG.20.FINAL.DIC.A.PRACTICA ######################
 
-'''
+
 def media_01(n,lstCiudad ,lstResiduos):
     d = {}
     # c = 0
@@ -586,7 +586,7 @@ def media_01(n,lstCiudad ,lstResiduos):
             d[ls[1]] = [v, c]
             # c+=1
             # print(c)
-#   print(d)
+    #print(d)
 
     for x in d.keys():
         prom = d[x][0] / d[x][1]
@@ -610,13 +610,16 @@ def media_01(n,lstCiudad ,lstResiduos):
         if linea[-1] == "\n":
             linea = linea[:-1]
         ls = linea.split(",")
-        
+
         for x in d.keys():
             if ls[0] == x:
                 d2[ls[1]] = d[x]
 
+    #print(d2)
+
     ls2 = []
     for x in d2:
+        print(x)
         ls2.append([x, d2[x]])
 
     for x in range(len(ls2)-1):
@@ -626,7 +629,7 @@ def media_01(n,lstCiudad ,lstResiduos):
                 ls2[x] = ls2[u]
                 ls2[u] = aux
 
-    #print(ls2)
+    print(ls2)
 
     i = 0
     ls3 = []
@@ -639,17 +642,17 @@ def media_01(n,lstCiudad ,lstResiduos):
     r = promg, ls3
     return r
 
-# def main():
-#     print("Prueba para el EJ01")
-#     lstCiudad = ['223,Parana\n', '114,Merlo\n', '218,Guaymallen\n', '132,C. Rivadavia\n', '341,Adolfo Alsina\n', '404,Jose C. Paz\n']
-#     lstResiduos = ['33,114,200518\n', '31,223,200519\n', '27,218,200319\n', '26,132,200616\n', '74,341,200319\n', '62,404,200606\n', '46,218,200709\n', '55,132,200630\n', '55,341,200612\n',
-#     '54,404,200701\n', '23,114,200315\n', '55,223,200519\n', '34,218,200319\n', '33,132,200425\n', '27,341,200422\n', '21,404,200501\n', '31,114,200503\n', '44,114,200513\n', '44,218,200519\n']
-#     print(media_01(3,lstCiudad ,lstResiduos ))
-#     #media_01(3,lstCiudad ,lstResiduos )
+def main():
+    print("Prueba para el EJ01")
+    lstCiudad = ['223,Parana\n', '114,Merlo\n', '218,Guaymallen\n', '132,C. Rivadavia\n', '341,Adolfo Alsina\n', '404,Jose C. Paz\n']
+    lstResiduos = ['33,114,200518\n', '31,223,200519\n', '27,218,200319\n', '26,132,200616\n', '74,341,200319\n', '62,404,200606\n', '46,218,200709\n', '55,132,200630\n', '55,341,200612\n',
+    '54,404,200701\n', '23,114,200315\n', '55,223,200519\n', '34,218,200319\n', '33,132,200425\n', '27,341,200422\n', '21,404,200501\n', '31,114,200503\n', '44,114,200513\n', '44,218,200519\n']
+    print(media_01(3,lstCiudad ,lstResiduos ))
+    #media_01(3,lstCiudad ,lstResiduos )
 
-# main()
+main()
 
-def media_02(lstResiduos):
+'''def media_02(lstResiduos):
     d = {}
     for linea in lstResiduos:
         if linea[-1] == "\n":
@@ -666,7 +669,7 @@ def media_02(lstResiduos):
             while i < len(m) and m[i] != "0":
                 pal += m[i]
                 i += 1
-        1#print(pal)
+        #print(pal)
 
         if pal not in d.keys():
             d[pal] = [int(ls[0]), 1]
@@ -678,8 +681,10 @@ def media_02(lstResiduos):
     #print(d)
 
     for x in d.keys():
+        #print(x)
         prom = d[x][0] / d[x][1]
         d[x] = prom
+    #print(d)
 
     ls2 = list(d)
     for x in range(len(ls2)-1):
@@ -724,7 +729,7 @@ main()'''
 
 # Practica random
 
-b = 9
+'''b = 9
 
 for f in range(0,b):
     for c in range(0,b):
@@ -740,4 +745,4 @@ for f in range(0,b):
             print(" *", end="")
         else:
             print("  ", end="")
-    print()
+    print()'''

@@ -178,7 +178,8 @@ def figura9(b):
         for c in range(0,b):
             #if f<=c+(b//2) and f>=c-(b//2) and f+c>=b-1-(b//2) and f+c<=b-1+(b//2):
             #if f<=c+(b//2) and f>=c-(b//2) and f+c>=b-1-(b//2) and f+c<=b-1+(b//2):
-            if f<=c+(b//2) and f>=c-(b//2) and f+c<=b-1+(b//2) and f+c>=b-1-(b//2):    
+            #if f<=c+(b//2) and f>=c-(b//2) and f+c<=b-1+(b//2) and f+c>=b-1-(b//2):
+            if f >= (c-(b//2)) and f <= (c+(b//2)) and f + c <= (b-1+(b//2)) and f + c >= (b-1-(b//2)):
                 print("*", end="")
             else:
                 print(" ", end="")
