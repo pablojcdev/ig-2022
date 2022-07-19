@@ -629,7 +629,7 @@ def media_01(n,lstCiudad ,lstResiduos):
                 ls2[x] = ls2[u]
                 ls2[u] = aux
 
-    print(ls2)
+    #print(ls2)
 
     i = 0
     ls3 = []
@@ -729,7 +729,8 @@ main()'''
 
 # Practica random
 
-'''b = 9
+'''
+b = 9
 
 for f in range(0,b):
     for c in range(0,b):
@@ -745,4 +746,30 @@ for f in range(0,b):
             print(" *", end="")
         else:
             print("  ", end="")
-    print()'''
+    print()
+'''
+'''
+
+A  B  (A AND B) NOT(A AND B) NOT(A) NOT(B) (NOT(A)+NOT(B))
+
+1  1      1         0          0      0          0
+
+1  0      0         1          0      1          1
+
+0  1      0         1          1      0          1
+
+0  0      0         1          1      1          1
+
+
+x puede ser = 0 - 1 - 1 - 1
+
+# y puede ser = 0 - 1 - 1 - 1 | esto seria si funcionará como el teorema lo dice, pero solo ve la primera variable, es decir not(A)
+#y puede ser = 0 - 0 - 1 - 1 | coreccion: solo ve la primera variable si es que esta dio "False", pero si da "True" va a ver tambien la segunda variable, caso 3. En ese entonces tomará al "and" como "*" y no como "+", dando asi en ese caso "False"
+
+y puede ser = 0 - 0 - 0 - 1
+
+
+# siempre son iguales | hipotesis errada
+# el "res" siempre es 20
+
+'''
